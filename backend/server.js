@@ -12,7 +12,7 @@ const reviewRoute   =require('./database/nosql/routes/reviewRoute')
 const mysqldb=mysql.createConnection({
     host:"localhost",
     user: "root",
-    password: "5gws274aws",
+    password: "password",
     database: "ams_database"
 });
 
