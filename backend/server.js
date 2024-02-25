@@ -6,7 +6,9 @@ const morgan        =require('morgan')
 const bodyParser    =require('body-parser')
 
 //importing routes
-const reviewRoute   =require('./database/nosql/routes/reviewRoute')
+const reviewRoute   =require('./database/src/routes/reviewRoute')
+const houseRoute    =require('./database/src/routes/houseRoute')
+const searchRoute   =require('./database/src/routes/searchRoute')
 
 //connecting nodejs to mysql
 const mysqldb=mysql.createConnection({
@@ -45,4 +47,7 @@ app.listen(PORT,()=>{                               //start listening to the ser
     console.log(`Server is running on port ${PORT}`)
 })
 
-app.use('/api/review',reviewRoute)                  //mounting middleware function
+//mounting middleware function
+app.use('/api/review',reviewRoute)                  
+app.use('/api/house',houseRoute)
+app.use('/api/search',searchRoute)
