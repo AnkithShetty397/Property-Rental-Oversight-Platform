@@ -26,7 +26,8 @@ var saveProfilePicture = multer({
     fileFilter : function(req,file, callback){          //check for image extension
         if(
             file.mimetype == "image/png" ||
-            file.mimetype == "image/jpg"
+            file.mimetype == "image/jpg" ||
+            file.mimetype == "image/jpeg"
         ){
             callback(null,true)
         }else{

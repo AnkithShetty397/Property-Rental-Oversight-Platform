@@ -1,5 +1,6 @@
 const Profile       = require('../models/Profile')
 const fs            = require('fs')
+const path          = require('path')
 
 const saveProfilePicture = (req,res,next)=>{
     if (!req.file) {
@@ -9,6 +10,7 @@ const saveProfilePicture = (req,res,next)=>{
         user_id: req.body.user_id,
         pathtoimage: req.file.path
     })
+    
     profile.save()
     .then(response=>{
         res.json({
@@ -55,6 +57,42 @@ const deleteProfilePicture = (req,res,next)=>{
     })
 }
 
+const getProfilePicture = (req, res, next) => {
+    const userid = req.body.user_id
+
+    Profile.findOne({ user_id: userid })
+        .then(profile => {
+            if (!profile) {
+                return res.status(404).json({ success: false, message: 'Profile not found' })
+            }
+
+            const imagePath = profile.pathtoimage;
+
+            if (!imagePath) {
+                return res.status(404).json({ success: false, message: 'Image path not found' })
+            }
+
+            fs.readFile(imagePath, (err, data) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ success: false, message: 'Error reading image' })
+                }
+
+                const contentType = path.extname(imagePath) === '.png' ? 'image/png' : 'image/jpeg'
+
+                res.setHeader('Content-Type', contentType)
+
+                res.send(data)
+            })
+        })
+        .catch(error => {
+            console.error(error)
+            res.status(500).json({ success: false, message: 'Error finding profile' })
+        })
+}
+
+
+
 module.exports = {
-    saveProfilePicture, deleteProfilePicture
+    saveProfilePicture, deleteProfilePicture, getProfilePicture
 }
