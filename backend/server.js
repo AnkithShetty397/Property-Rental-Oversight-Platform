@@ -9,6 +9,7 @@ const bodyParser    =require('body-parser')
 const reviewRoute   =require('./database/src/routes/reviewRoute')
 const houseRoute    =require('./database/src/routes/houseRoute')
 const searchRoute   =require('./database/src/routes/searchRoute')
+const profileRoute  =require('./database/src/routes/profileRoute')
 
 //connecting nodejs to mysql
 const mysqldb=mysql.createConnection({
@@ -51,3 +52,4 @@ app.listen(PORT,()=>{                               //start listening to the ser
 app.use('/api/review',reviewRoute)                  
 app.use('/api/house',houseRoute)
 app.use('/api/search',searchRoute)
+app.use('/api/profile',profileRoute)
