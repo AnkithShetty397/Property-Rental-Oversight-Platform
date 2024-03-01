@@ -6,10 +6,11 @@ const morgan        =require('morgan')
 const bodyParser    =require('body-parser')
 
 //importing routes
-const reviewRoute   =require('./database/src/routes/reviewRoute')
-const houseRoute    =require('./database/src/routes/houseRoute')
-const searchRoute   =require('./database/src/routes/searchRoute')
-const profileRoute  =require('./database/src/routes/profileRoute')
+const reviewRoute       = require('./database/src/routes/reviewRoute')
+const houseRoute        = require('./database/src/routes/houseRoute')
+const searchRoute       = require('./database/src/routes/searchRoute')
+const profileRoute      = require('./database/src/routes/profileRoute')
+const userdetailsRoute  = require('./database/src/routes/userdetailsRoute')
 
 //connecting nodejs to mysql
 const mysqldb=mysql.createConnection({
@@ -17,12 +18,12 @@ const mysqldb=mysql.createConnection({
     user: "root",
     password: "5gws274aws",
     database: "ams_database"
-});
+})
 
 mysqldb.connect(function(err){
     if(err) throw err;
     console.log("MySQL database connection established!")
-});
+})
 
 //connecting nodejs application to mongodb database using mongoose
 mongoose.connect('mongodb://localhost:27017/nosqldb',{})       //default port //nosqldb is the name of mongodb
@@ -53,3 +54,4 @@ app.use('/api/review',reviewRoute)
 app.use('/api/house',houseRoute)
 app.use('/api/search',searchRoute)
 app.use('/api/profile',profileRoute)
+app.use('/api/user',userdetailsRoute)

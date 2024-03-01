@@ -1,4 +1,12 @@
 const axios         =require('axios')
+const mysql         =require('mysql')
+
+const connection = mysql.createConnection({
+    host:"localhost",
+    user: "root",
+    password: "5gws274aws",
+    database: "ams_database"
+})
 
 const searchHouse = (req,res,next)=>{
     const city = req.body.location

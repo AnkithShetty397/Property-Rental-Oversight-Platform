@@ -58,7 +58,11 @@ const deleteProfilePicture = (req,res,next)=>{
 }
 
 const getProfilePicture = (req, res, next) => {
-    const userid = req.body.user_id
+    const userid = req.query.user_id // Extract user_id from query parameters
+
+    if (!userid) {
+        return res.status(400).json({ success: false, message: 'User ID is required' })
+    }
 
     Profile.findOne({ user_id: userid })
         .then(profile => {
@@ -66,7 +70,7 @@ const getProfilePicture = (req, res, next) => {
                 return res.status(404).json({ success: false, message: 'Profile not found' })
             }
 
-            const imagePath = profile.pathtoimage;
+            const imagePath = profile.pathtoimage
 
             if (!imagePath) {
                 return res.status(404).json({ success: false, message: 'Image path not found' })
@@ -80,16 +84,16 @@ const getProfilePicture = (req, res, next) => {
 
                 const contentType = path.extname(imagePath) === '.png' ? 'image/png' : 'image/jpeg'
 
-                res.setHeader('Content-Type', contentType)
-
-                res.send(data)
+                res.setHeader('Content-Type', contentType);
+                res.send(data);
             })
         })
         .catch(error => {
-            console.error(error)
+            console.error(error);
             res.status(500).json({ success: false, message: 'Error finding profile' })
         })
-}
+};
+
 
 
 
