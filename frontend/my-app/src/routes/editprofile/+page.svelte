@@ -1,14 +1,14 @@
 <script lang="ts">
     import { user_id } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js';
-    
+
     /** @type {import('./$types').PageData} */
     export let data;
-    let data1 = data;
+
+    let data1= data.info;
     let data2 = data1;
-    
+
     async function uploadFile() {
         const fileInput = document.querySelector('input[type="file"]');
-
         if (fileInput instanceof HTMLInputElement && fileInput.files && fileInput.files.length > 0) {
             const file = fileInput.files[0];
 
@@ -35,10 +35,26 @@
         }
     }
 
-    async function updateProfile(){
-
+    async function updateProfile() {
+        const requestBody = data2;
+        try {
+            const response = await fetch('http://localhost:3000/api/user/updateUserDetails', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
+            });
+            if (!response.ok) {
+                alert("Profile Update Failed")
+                throw new Error('Failed to update profile');
+            }
+            alert('Profile updated successfully')
+            console.log('Profile updated successfully');
+        } catch (error) {
+            console.error('Error updating profile:', error);
+        }
     }
-
 </script>
 
 
@@ -48,25 +64,22 @@
         <div class="container">
             <div class="profile-container">
                 <img src={`http://localhost:3000/api/profile/getProfilePicture?user_id=${user_id}`} alt="" class="profile-image">
-                <p>Change Profile Photo <input type="file" accept=".jpg, .png" on:change={uploadFile} style="font-size: .9rem; width:400px"></p>
+                <p>Change Profile Photo: <input type="file" accept=".jpg, .png" on:change={uploadFile} style="font-size: .9rem; width:400px"></p>
                 <div class="user-info">
                     <p>Name:</p>
-                    <input bind:value={data2.info.name} placeholder="Name" style="font-size: 1rem; width:400px; display: block;">
+                    <input bind:value={data1.name} placeholder="Name" style="font-size: 1rem; width:400px; display: block;" on:change={() => data2.name="Ankith"}>
                 
                     <p>Age:</p>
-                    <input type="number" bind:value={data2.info.age} placeholder="Age" style="font-size: .9rem; width:400px; display: block;">
+                    <input type="number" bind:value={data1.age} placeholder="Age" style="font-size: .9rem; width:400px; display: block;">
                 
                     <p>Location:</p>
-                    <input bind:value={data2.info.location} placeholder="Location" style="font-size: .9rem; width:400px; display: block;">
-                
-                    <p>Aadhar Number:</p>
-                    <input bind:value={data2.info.adhar_no} placeholder="Aadhar Number" style="font-size: .9rem; width:400px; display: block;">
+                    <input bind:value={data1.location} placeholder="Location" style="font-size: .9rem; width:400px; display: block;">
                 
                     <p>Phone Number:</p>
-                    <input bind:value={data2.info.phone_no} placeholder="Phone Number" style="font-size: .9rem; width:400px; display: block;">
+                    <input bind:value={data1.phone_no} placeholder="Phone Number" style="font-size: .9rem; width:400px; display: block;">
                 </div>                
             </div>
-            <button class="button"disabled={(!data2.info.name || !data2.info.age || !data2.info.location || !data2.info.adhar_no || !data2.info.phone_no)} type="submit" on:click={updateProfile}>Save</button>
+            <button class="button"disabled={(!data1.name || !data1.age || !data1.location || !data1.adhar_no || !data1.phone_no)} type="submit" on:click={updateProfile}>Save</button>
         </div>
     </body> 
 </main>
