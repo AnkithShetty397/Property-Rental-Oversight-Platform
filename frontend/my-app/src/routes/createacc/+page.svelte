@@ -8,7 +8,8 @@
         age: null,
         phone_no: "",
         adhar_no: "",
-        location: ""
+        location: "",
+        password: ""
     }
 
     async function uploadFile() {
@@ -74,6 +75,9 @@
 
                     <p>E-mail:</p>
                     <input bind:value={data1.email} placeholder="E-mail" style="font-size: 1rem; width:400px; display: block;">
+
+                    <p>Password:</p>
+                    <input type="password" bind:value={data1.password} placeholder="Password" minlength="8" style="font-size: 1rem; width:400px; display: block;">
                 
                     <p>Age:</p>
                     <input type="number" bind:value={data1.age} placeholder="Age" style="font-size: .9rem; width:400px; display: block;">
@@ -102,6 +106,24 @@
         height: 530px;
         width: 1140px;
         justify-content: center;
+    }
+    .container::-webkit-scrollbar {
+    width: 10px;
+    }
+
+    /* Track (the area behind the scrollbar) */
+    .container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    }
+
+    /* Handle (the draggable scrolling part) */
+    .container::-webkit-scrollbar-thumb {
+    background: #888;
+    }
+
+    /* Handle on hover */
+    .container::-webkit-scrollbar-thumb:hover {
+    background: #555;
     }
   
     .profile-container {

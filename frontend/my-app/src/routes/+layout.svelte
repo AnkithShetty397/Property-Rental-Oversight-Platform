@@ -54,6 +54,7 @@
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
+        background-image: url(http://localhost:3000/api/profile/getProfilePicture?user_id=0000000001);
     }
     header {
         background-color: #333;

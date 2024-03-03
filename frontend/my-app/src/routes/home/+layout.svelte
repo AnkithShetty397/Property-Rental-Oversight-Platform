@@ -17,7 +17,7 @@
 <body>
     <div class="search-container">
         <input type="text" placeholder="Search..." bind:value={param}>
-        <button type="submit" on:click={handleClick} ><i class="fa fa-search"></i></button>
+        <button type="submit" on:click={handleClick} ><i class="fa fa-search"></i>Search</button>
     </div>
     <div>
         <slot/>
@@ -31,7 +31,7 @@
         overflow: hidden;
         height: 50px;
         width: 1100px;
-        margin: auto auto 20px auto;
+        margin: auto auto 20px 5px;
     }
     
     .search-container input[type="text"] {
@@ -51,6 +51,7 @@
         border-radius: 0 25px 25px 0; /* Adjust the border-radius value for rounder corners */
         cursor: pointer;
         width: 100px;
+        font-size: medium;
     }
 </style>
 
