@@ -1,8 +1,21 @@
 <script>
+  import { setHouse_no } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
+  import { goto } from '$app/navigation';
+  
   /** @type {import('./$types').PageData} */
   export let data;
   console.log(data)
 
+  /**
+ * Handle button click event.
+ * @param {string} houseNo - The house number.
+ */
+  
+function handleButtonClick(houseNo) {
+    console.log(houseNo)
+    setHouse_no(houseNo)
+    goto('/house');
+}
 </script>
 
 <main>
@@ -17,7 +30,7 @@
             <h3>Title: {house.house_no}</h3>
             <p>Description goes here...{house.block_no}</p>
           </div>
-          <button class="open-button" >Open</button>
+          <button class="open-button" on:click={() => handleButtonClick(house.house_no)} >Open</button>
       </div>
     {/each}
   </div>
@@ -47,7 +60,7 @@
 
 /* Handle on hover */
 .scrollable-container::-webkit-scrollbar-thumb:hover {
-     background: #555;
+     background: #676767;
 }
 .result {
       position: relative; /* Add relative positioning to .result */
@@ -75,34 +88,34 @@
   background-color: #1d1e1d; /* Darker green background on hover */
 }
 
-    .image-label {
-    width: 100px; 
-    flex-shrink: 0; 
-    }
+.image-label {
+width: 100px; 
+flex-shrink: 0; 
+}
 
-    .image-label img {
-    width: 100%;
-    height: auto;
-    display: block;
-    }
+.image-label img {
+width: 100%;
+height: auto;
+display: block;
+}
 
-    .label {
-    display: block;
-    text-align: center;
-    margin-top: 5px; 
-    }
+.label {
+display: block;
+text-align: center;
+margin-top: 5px; 
+}
 
-    .text-content {
-    flex-grow: 1; 
-    padding-left: 10px; 
-    }
+.text-content {
+flex-grow: 1; 
+padding-left: 10px; 
+}
 
-    .text-content h3 {
-    margin-top: 0;
-    margin-bottom: 5px; 
-    }
+.text-content h3 {
+margin-top: 0;
+margin-bottom: 5px; 
+}
 
-    .text-content p {
-    margin-top: 0;
-    }
+.text-content p {
+margin-top: 0;
+}
 </style>

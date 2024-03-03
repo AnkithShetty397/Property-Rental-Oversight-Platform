@@ -1,12 +1,13 @@
+import { house_no } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
+
 /** @type {import('./$types').PageLoad} */
 export const load = async()=>{
-    let response={houses: [
-        { "house_no": "A101", "block_no": "B1" },
-        { "house_no": "B202", "block_no": "B2" },
-        { "house_no": "C303", "block_no": "B3" }
-    ]
-    }
+    //let response = await fetch(`http://localhost:3000/api/house/getHouseDetails?${house_no}`);
+    //const res = await response.json()
+
     return {
-        houses: response.houses
+        house_no: house_no,
+        house_details: "edwe31",
+        reviews:["nice","cool","okayish"]
     }
 }

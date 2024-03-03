@@ -1,16 +1,14 @@
 <script>
-    import { loc, setMyVariable } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
-
-    import { navigate } from 'svelte-routing';
+    import { goto } from '$app/navigation';
+    import { loc, setLoc } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
 
     let param = ""
 
     function handleClick() {
         console.log(loc)
-        setMyVariable(param)
+        setLoc(param)
         console.log(loc)
-        navigate('/home/search');
-        location.reload()
+        goto('/home/search')
     }
 </script>
 

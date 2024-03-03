@@ -12,7 +12,7 @@
                 <li><a href="/notifications" class="button-link">Notifications</a></li>
                 <li><a href="/login/" class="button-link">Log-in</a></li>
                 <li><a href="/createacc/" class="button-link">Create Account</a></li>
-                <li><a href="/home/search" class="button-link">About Us</a></li>
+                <li><a href="/" class="button-link">About Us</a></li>
             </ul>
         </div>
         
@@ -54,7 +54,7 @@
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
-        background-image: url(http://localhost:3000/api/profile/getProfilePicture?user_id=0000000001);
+        /*background-image: url(http://localhost:3000/api/profile/getProfilePicture?user_id=0000000001);*/
     }
     header {
         background-color: #333;
