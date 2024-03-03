@@ -1,9 +1,8 @@
 <script lang="ts">
-    import {onMount} from 'svelte'
-    import { user_id } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js';
+    import { user_id } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
 
-    /** @type {import('./$types').PageData} */
     export let data;
+    console.log(data)
     let data1=data;
 </script>
 
@@ -19,7 +18,7 @@
                     <p>Aadhar Number: { data1.info.adhar_no }</p>
                     <p>Phone Number: { data1.info.phone_no }</p>
             </div>
-            <a href="/editprofile/" class="button-link">Edit</a>
+            <a href="/editprofile" class="button-link">Edit</a>
         </div>
     </body> 
     

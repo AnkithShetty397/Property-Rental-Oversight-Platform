@@ -1,11 +1,15 @@
 <script lang="ts">
+    import {  } from 'zod';
     import { user_id } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js';
 
-    export let data;
-    console.log(data)
-
-    let data1= data.info;
-    console.log(data1)
+    let data1 ={
+        name: "",
+        email: "",
+        age: null,
+        phone_no: "",
+        adhar_no: "",
+        location: ""
+    }
 
     async function uploadFile() {
         const fileInput = document.querySelector('input[type="file"]');
@@ -64,11 +68,12 @@
     <body>
         <div class="container">
             <div class="profile-container">
-                <img src={`http://localhost:3000/api/profile/getProfilePicture?user_id=${user_id}`} alt="" class="profile-image">
-                <p>Change Profile Photo: <input type="file" accept=".jpg, .png" on:change={uploadFile} style="font-size: .9rem; width:400px"></p>
                 <div class="user-info">
                     <p>Name:</p>
                     <input bind:value={data1.name} placeholder="Name" style="font-size: 1rem; width:400px; display: block;">
+
+                    <p>E-mail:</p>
+                    <input bind:value={data1.email} placeholder="E-mail" style="font-size: 1rem; width:400px; display: block;">
                 
                     <p>Age:</p>
                     <input type="number" bind:value={data1.age} placeholder="Age" style="font-size: .9rem; width:400px; display: block;">
@@ -78,6 +83,12 @@
                 
                     <p>Phone Number:</p>
                     <input bind:value={data1.phone_no} placeholder="Phone Number" style="font-size: .9rem; width:400px; display: block;">
+
+                    <p>Aadhar Number:</p>
+                    <input bind:value={data1.adhar_no} placeholder="Aadhar Number" style="font-size: 1rem; width:400px; display: block;">
+
+                    <p>Profile Picture</p>
+                    <input type="file" accept=".jpg, .png" on:change={uploadFile} style="font-size: .9rem; width:400px">
                 </div>                
             </div>
             <button class="button"disabled={(!data1.name || !data1.age || !data1.location || !data1.adhar_no || !data1.phone_no)} type="submit" on:click={updateProfile}>Save</button>
@@ -90,6 +101,7 @@
         overflow-y: auto;
         height: 530px;
         width: 1140px;
+        justify-content: center;
     }
   
     .profile-container {
@@ -99,14 +111,7 @@
         align-items: left;
         align-content: left;
     }
-  
-    .profile-image {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-    }
-  
+
     .user-info {
         text-align: left;
     }

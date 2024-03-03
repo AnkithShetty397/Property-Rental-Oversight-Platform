@@ -1,7 +1,23 @@
+<script>
+    import { loc, setMyVariable } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
+
+    import { navigate } from 'svelte-routing';
+
+    let param = ""
+
+    function handleClick() {
+        console.log(loc)
+        setMyVariable(param)
+        console.log(loc)
+        navigate('/home/search');
+        location.reload()
+    }
+</script>
+
 <body>
     <div class="search-container">
-        <input type="text" placeholder="Search...">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="text" placeholder="Search..." bind:value={param}>
+        <button type="submit" on:click={handleClick} ><i class="fa fa-search"></i></button>
     </div>
     <div>
         <slot/>

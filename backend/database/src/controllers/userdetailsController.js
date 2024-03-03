@@ -23,8 +23,8 @@ const getUserDetails = (req,res,next)=>{
 
 const updateUserDetails = (req, res, next) => {
     const user_id = req.body.user_id;
-    const name = req.body.user_name;
-    const age = req.body.user_age;
+    const name = req.body.name;
+    const age = req.body.age;
     const location = req.body.location;
     const adhar_no = req.body.adhar_no;
     const phone_no = req.body.phone_no;
@@ -32,40 +32,53 @@ const updateUserDetails = (req, res, next) => {
     const query1 = 'UPDATE tenant SET tenant_name=?, tenant_age=? WHERE user_id=?';
     const query2 = 'UPDATE identity SET phone_no=?, location=? WHERE adhar_id=?';
 
-    connection.beginTransaction((err) => {
-        if (err) {
-            console.error('Error starting transaction:', err);
-            res.status(500).json({ error: 'Error starting transaction' });
-            return;
-        }
-        
-        connection.query(query1, [name, age, user_id], (error1, results1) => {
-            if (error1) {
-                console.error('Error updating tenant:', error1);
-                return connection.rollback(() => {
-                    res.status(500).json({ error: 'Error updating tenant' });
-                });
+    new Promise((resolve, reject) => {
+        connection.beginTransaction((err) => {
+            if (err) {
+                console.error('Error starting transaction:', err);
+                reject(err);
+                return;
             }
-            
+            resolve();
+        });
+    })
+    .then(() => {
+        return new Promise((resolve, reject) => {
+            connection.query(query1, [name, age, user_id], (error1, results1) => {
+                if (error1) {
+                    console.error('Error updating tenant:', error1);
+                    return reject(error1);
+                }
+                resolve();
+            });
+        });
+    })
+    .then(() => {
+        return new Promise((resolve, reject) => {
             connection.query(query2, [phone_no, location, adhar_no], (error2, results2) => {
                 if (error2) {
                     console.error('Error updating identity:', error2);
-                    return connection.rollback(() => {
-                        res.status(500).json({ error: 'Error updating identity' });
-                    });
+                    return reject(error2);
                 }
-
-                connection.commit((err) => {
-                    if (err) {
-                        console.error('Error committing transaction:', err);
-                        return connection.rollback(() => {
-                            res.status(500).json({ error: 'Error committing transaction' });
-                        });
-                    }
-
-                    res.status(200).json({ message: 'Update successful' });
-                });
+                resolve();
             });
+        });
+    })
+    .then(() => {
+        connection.commit((err) => {
+            if (err) {
+                console.error('Error committing transaction:', err);
+                return connection.rollback(() => {
+                    res.status(500).json({ error: 'Error committing transaction' });
+                });
+            }
+            res.status(200).json({ message: 'Update successful' });
+        });
+    })
+    .catch((error) => {
+        connection.rollback(() => {
+            console.error('Error in transaction:', error);
+            res.status(500).json({ error: 'Error in transaction' });
         });
     });
 };
