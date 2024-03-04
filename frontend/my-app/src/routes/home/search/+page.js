@@ -1,4 +1,4 @@
-import { loc } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
+import { loc } from '$lib/global.js'
 
 /** @type {import('./$types').PageLoad} */
 export const load = async()=>{

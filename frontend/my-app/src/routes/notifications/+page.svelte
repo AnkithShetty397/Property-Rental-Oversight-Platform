@@ -35,14 +35,14 @@
  
  <style>
    .wrapper {
-     width: 1100px; /* Set the width of the wrapper */
+     width: 1100px; 
      height: 530px;
-     margin: 0 auto; /* Center the wrapper horizontally */
+     margin: 0 auto;
      position: relative;
    }
    
    .scrollable-container {
-     height: 478px; /* Set the height of the scrollable container */
+     height: 478px; 
      overflow-y: auto;
    }
 
@@ -50,17 +50,14 @@
     width: 10px;
     }
 
-    /* Track (the area behind the scrollbar) */
     .scrollable-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     }
 
-    /* Handle (the draggable scrolling part) */
     .scrollable-container::-webkit-scrollbar-thumb {
     background: #888;
     }
 
-    /* Handle on hover */
     .scrollable-container::-webkit-scrollbar-thumb:hover {
     background: #555;
     }
@@ -101,7 +98,7 @@
  
    .manager-message {
      background-color: #57a6cd; 
-     color: #000; /* Set text color to black for manager messages */
+     color: #000; 
      border-radius:15px;
    }
 
@@ -109,7 +106,7 @@
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 1100px; /* Set the width of the input container */
+      width: 1100px; 
       padding: 10px;
       background-color: #f0f0f0;
       border-top: 1px solid #ccc;

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { user_id } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js';
+    import { user_id } from '$lib/global.js';
 
     export let data;
     console.log(data)

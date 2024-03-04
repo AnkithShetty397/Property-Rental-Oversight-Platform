@@ -1,0 +1,21 @@
+{
+	"/": [],
+	"/createacc": [],
+	"/editprofile": [
+		"src/routes/editprofile/+page.server.js"
+	],
+	"/home": [],
+	"/home/search": [
+		"src/routes/home/search/+page.js"
+	],
+	"/house": [
+		"src/routes/house/+page.js"
+	],
+	"/login": [],
+	"/notifications": [
+		"src/routes/notifications/+page.js"
+	],
+	"/profile": [
+		"src/routes/profile/+page.server.js"
+	]
+}

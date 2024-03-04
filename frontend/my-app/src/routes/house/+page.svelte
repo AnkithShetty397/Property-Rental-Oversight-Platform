@@ -1,5 +1,5 @@
 <script>
-  import { house_no } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
+  import { house_no } from '$lib/global.js'
   /** @type {import('./$types').PageData} */
   export let data;
 

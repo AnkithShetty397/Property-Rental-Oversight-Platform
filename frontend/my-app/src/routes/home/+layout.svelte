@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-    import { loc, setLoc } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
+    import { loc, setLoc } from '$lib/global.js'
 
     let param = ""
 

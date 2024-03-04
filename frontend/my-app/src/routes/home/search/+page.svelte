@@ -1,5 +1,5 @@
 <script>
-  import { setHouse_no } from 'D:/apartment Management System/Property-Rental-Oversight-Platform/frontend/my-app/src/lib/global.js'
+  import { setHouse_no } from '$lib/global.js'
   import { goto } from '$app/navigation';
   
   /** @type {import('./$types').PageData} */

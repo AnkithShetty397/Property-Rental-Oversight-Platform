@@ -42,7 +42,7 @@
     }
 
     .button-link:hover {
-        background-color: #7b7c82e6; /* Darker blue on hover */
+        background-color: #7b7c82e6; 
     }
     
     .sideblock ul {
@@ -69,7 +69,7 @@
         margin: 20px;
         padding: 0 20px;
         display: flex;
-        flex-direction: row; /* Change to row to place items side by side */
+        flex-direction: row; 
     }
     
     .sideblock {
@@ -79,7 +79,7 @@
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-right: 20px; /* Add margin right to create space between sideblock and content */
+        margin-right: 20px; 
         text-align: left;
     }
 
