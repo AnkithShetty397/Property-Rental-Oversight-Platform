@@ -1,22 +1,51 @@
 <script>
+    import { user_id, block_no, user_type } from '$lib/global.js'
     /** @type {import('./$types').PageData} */
     export let data;
-    let url = "http://localhost:3000/api/profile/getProfilePicture?user_id=0000000001"
-    let newMessage = "";
+    let newMessage = ""
     
     function sendMessage() {
-        newMessage = "";
-    }
+      const messageToSend = newMessage;
+
+      const requestBody = {
+          user_id: user_id,
+          block_no: block_no,
+          sender:user_type,
+          message: messageToSend
+      };
+
+      fetch('http://localhost:3000/api/groupchat/addMessage', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(requestBody)
+      })
+      .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`)
+          }
+          console.log('Message sent successfully')
+          location.reload()
+      })
+      .catch(error => {
+          console.error('Error sending message:', error)
+      });
+  } 
+  
 </script>
 
 <body>
+  {#await data.streamed.messages}
+    <p>loading</p>
+  {:then messages}
    <div class="wrapper">
      <div class="scrollable-container">
        <div class="conversation-container">
-         {#each data.messages as message}
+         {#each data.streamed.messages as message}
          <div class="message-container {message.sender === 'manager' ? 'manager-message' : ''}">
              <div class="user-image">
-               <img src={url} alt="" class="user-avatar">
+               <img src="http://localhost:3000/api/profile/getProfilePicture?user_id={message.user_id}" alt="" class="user-avatar">
              </div>
              <div class="message-content">
                <p><strong>{message.name}</strong></p>
@@ -31,6 +60,7 @@
       <button on:click={sendMessage}>Send</button>
     </div>
    </div>
+  {/await}
  </body>
  
  <style>

@@ -8,7 +8,6 @@
       window.location.href = '/paymentgateway';
   }
 </script>
-
 <main>
   <div class="scrollable-container">
     <div class="house-details-container">
@@ -33,7 +32,17 @@
       {#if data.reviews && data.reviews.length > 0}
         {#each data.reviews as review}
           <div class="review">
-            <p>{review}</p>
+            <div class="user-name">{review.user_name}</div>
+            <div class="rating">
+              {#each Array(review.rating) as _, i}
+                {#if i < 5}
+                  <span class="{i < review.rating ? 'star filled' : 'star'}">★</span>
+                {/if}
+              {/each}
+            </div>
+            <div class="message">
+              <p>{review.message}</p>
+            </div>
           </div>
         {/each}
       {:else}
@@ -50,28 +59,25 @@
       margin-right:0
     }
     .scrollable-container {
-        max-height: 500px; /* Adjust as needed */
+        max-height: 500px; 
         overflow-y: auto;
         max-width:1100px;
         width: 100%;
-        padding-right: 10px; /* Add padding to create space for the scrollbar */
+        padding-right: 10px;
     }
 
     .scrollable-container::-webkit-scrollbar {
           width: 10px;
     }
 
-    /* Track (the area behind the scrollbar) */
     .scrollable-container::-webkit-scrollbar-track {
           background: #f1f1f1;
     }
 
-    /* Handle (the draggable scrolling part) */
     .scrollable-container::-webkit-scrollbar-thumb {
           background: #888;
     }
 
-    /* Handle on hover */
     .scrollable-container::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
@@ -117,10 +123,42 @@
     margin-top: 20px;
   }
 
-  .review {
+  .review {    
+    display: flex;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
+    width: 1057px
   }
+  .star {
+    color: grey;
+    font-size: 20px;
+  }
+
+  .filled {
+    color: gold;
+  }
+
+  .review {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 1057px;
+}
+
+.user-name {
+  padding: 10px;
+}
+
+.rating {
+  padding: 10px;
+  margin-left: auto;
+}
+
+.message {
+  padding: 10px;
+}
 </style>

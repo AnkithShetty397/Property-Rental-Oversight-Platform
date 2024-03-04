@@ -4,6 +4,10 @@
 	"/editprofile": [
 		"src/routes/editprofile/+page.server.js"
 	],
+	"/groupchat": [
+		"src/routes/groupchat/+page.js",
+		"src/routes/groupchat/+page.server.js"
+	],
 	"/home": [],
 	"/home/search": [
 		"src/routes/home/search/+page.js"
@@ -12,9 +16,6 @@
 		"src/routes/house/+page.js"
 	],
 	"/login": [],
-	"/notifications": [
-		"src/routes/notifications/+page.js"
-	],
 	"/profile": [
 		"src/routes/profile/+page.server.js"
 	]

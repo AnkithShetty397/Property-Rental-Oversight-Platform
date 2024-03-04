@@ -1,9 +1,6 @@
 <script lang="ts">
     import { user_id } from '$lib/global.js'
-
     export let data;
-    console.log(data)
-    let data1=data;
 </script>
 
 <main>
@@ -11,12 +8,12 @@
         <div class="profile-container">
             <img src={`http://localhost:3000/api/profile/getProfilePicture?user_id=${user_id}`} alt="" class="profile-image">
             <div class="user-info">
-                    <h2>{ data1.info.name}</h2>
-                    <p>Email: { data1.info.email }</p>
-                    <p>Age: {data1.info.age }</p>
-                    <p>Location: { data1.info.location }</p>
-                    <p>Aadhar Number: { data1.info.adhar_no }</p>
-                    <p>Phone Number: { data1.info.phone_no }</p>
+                    <h2>{ data.info.name}</h2>
+                    <p>Email: { data.info.email }</p>
+                    <p>Age: {data.info.age }</p>
+                    <p>Location: { data.info.location }</p>
+                    <p>Aadhar Number: { data.info.adhar_no }</p>
+                    <p>Phone Number: { data.info.phone_no }</p>
             </div>
             <a href="/editprofile" class="button-link">Edit</a>
         </div>

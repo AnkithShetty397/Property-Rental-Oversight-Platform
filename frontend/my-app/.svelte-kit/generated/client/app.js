@@ -22,11 +22,11 @@ export const dictionary = {
 		"/": [4],
 		"/createacc": [5],
 		"/editprofile": [~6],
-		"/home": [7,[2]],
-		"/home/search": [8,[2,3]],
-		"/house": [9],
-		"/login": [10],
-		"/notifications": [11],
+		"/groupchat": [~7],
+		"/home": [8,[2]],
+		"/home/search": [9,[2,3]],
+		"/house": [10],
+		"/login": [11],
 		"/profile": [~12]
 	};
 

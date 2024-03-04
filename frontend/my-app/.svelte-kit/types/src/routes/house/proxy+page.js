@@ -9,6 +9,6 @@ export const load = async()=>{
     return {
         house_no: house_no,
         house_details: "edwe31",
-        reviews:["nice","cool","okayish"]
+        reviews:[{user_name:"Ram",message:"nice",rating:5},{user_name:"Tom",message:"cool",rating:4},{user_name:"Sam",message:"okayish",rating:2}]
     }
 }

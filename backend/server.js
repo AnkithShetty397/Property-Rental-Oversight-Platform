@@ -11,6 +11,7 @@ const houseRoute        = require('./database/src/routes/houseRoute');
 const searchRoute       = require('./database/src/routes/searchRoute');
 const profileRoute      = require('./database/src/routes/profileRoute');
 const userdetailsRoute  = require('./database/src/routes/userdetailsRoute');
+const groupchatRoute    = require('./database/src/routes/groupchatRoute');
 
 // connecting nodejs to mysql
 const mysqldb = mysql.createConnection({
@@ -57,3 +58,4 @@ app.use('/api/house', houseRoute);
 app.use('/api/search', searchRoute);
 app.use('/api/profile', profileRoute);
 app.use('/api/user', userdetailsRoute);
+app.use('/api/groupchat',groupchatRoute);

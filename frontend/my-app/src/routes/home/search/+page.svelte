@@ -38,54 +38,51 @@ function handleButtonClick(houseNo) {
 
 <style>
   .scrollable-container {
-    max-height: 450px; /* Adjust as needed */
+    max-height: 450px;
     overflow-y: auto;
     width: 1100px;
-    padding-right: 10px; /* Add padding to create space for the scrollbar */
+    padding-right: 10px; 
 }
 
 .scrollable-container::-webkit-scrollbar {
       width: 10px;
 }
 
-/* Track (the area behind the scrollbar) */
 .scrollable-container::-webkit-scrollbar-track {
       background: #f1f1f1;
 }
 
-/* Handle (the draggable scrolling part) */
 .scrollable-container::-webkit-scrollbar-thumb {
       background: #888;
 }
 
-/* Handle on hover */
 .scrollable-container::-webkit-scrollbar-thumb:hover {
      background: #676767;
 }
 .result {
-      position: relative; /* Add relative positioning to .result */
+      position: relative;
       display: flex;
       margin-bottom: 20px;
-      background-color: #b0afaf; /* Slightly dark color */
-      padding: 10px; /* Add padding for better spacing */
+      background-color: #b0afaf;
+      padding: 10px; 
       border-radius: 10px;
 }
 
 .open-button {
   position: absolute;
-  bottom: 15px; /* Adjust as needed */
-  right: 15px; /* Adjust as needed */
-  padding: 12px 20px; /* Adjust padding to increase or decrease button size */
-  font-size: 14px; /* Adjust font size */
-  background-color: #424342; /* Green background */
-  color: white; /* Text color */
+  bottom: 15px; 
+  right: 15px; 
+  padding: 12px 20px; 
+  font-size: 14px; 
+  background-color: #424342; 
+  color: white;
   border: none;
-  border-radius: 5px; /* Adjust border radius to change button shape */
+  border-radius: 5px;
   cursor: pointer;
 }
 
 .open-button:hover {
-  background-color: #1d1e1d; /* Darker green background on hover */
+  background-color: #1d1e1d; 
 }
 
 .image-label {

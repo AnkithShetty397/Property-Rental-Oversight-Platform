@@ -95,8 +95,6 @@ const getProfilePicture = (req, res, next) => {
 };
 
 
-
-
 module.exports = {
     saveProfilePicture, deleteProfilePicture, getProfilePicture
 }

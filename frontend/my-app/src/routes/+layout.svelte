@@ -9,7 +9,8 @@
             <ul>
                 <li><a href="/profile/" class="button-link">Profile</a></li>
                 <li><a href="/home/" class="button-link">Home</a></li>
-                <li><a href="/notifications" class="button-link">Notifications</a></li>
+                <li><a href="/groupchat" class="button-link">Notifications</a></li>
+                <li><a href="/groupchat" class="button-link">Chatbox</a></li>
                 <li><a href="/login/" class="button-link">Log-in</a></li>
                 <li><a href="/createacc/" class="button-link">Create Account</a></li>
                 <li><a href="/" class="button-link">About Us</a></li>
