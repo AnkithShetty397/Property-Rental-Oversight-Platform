@@ -10,7 +10,7 @@ const saveProfilePicture = (req,res,next)=>{
         user_id: req.body.user_id,
         pathtoimage: req.file.path
     })
-    
+
     profile.save()
     .then(response=>{
         res.json({
@@ -66,11 +66,11 @@ const getProfilePicture = (req, res, next) => {
 
     Profile.findOne({ user_id: userid })
         .then(profile => {
+            let imagePath
             if (!profile) {
-                return res.status(404).json({ success: false, message: 'Profile not found' })
+                imagePath = 'database\\src\\uploads\\profilepictures\\default.jpg';
             }
-
-            const imagePath = profile.pathtoimage
+            imagePath = profile.pathtoimage
 
             if (!imagePath) {
                 return res.status(404).json({ success: false, message: 'Image path not found' })

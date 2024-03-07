@@ -1,5 +1,4 @@
 <script lang="ts">
-    import {  } from 'zod';
     import { user_id } from '$lib/global.js';
 
     let data1 ={
@@ -12,39 +11,11 @@
         password: ""
     }
 
-    async function uploadFile() {
-        const fileInput = document.querySelector('input[type="file"]');
-        if (fileInput instanceof HTMLInputElement && fileInput.files && fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-
-            const formData = new FormData()
-            formData.append('user_id', user_id)
-            formData.append('profilephoto', file)
-            console.log(formData)
-            try {
-                const response = await fetch('http://localhost:3000/api/profile/saveProfilePicture', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                if (!response.ok) {
-                    throw new Error('Failed to upload file');
-                }
-
-                console.log('File uploaded successfully');
-            } catch (error) {
-                console.error('Error uploading file:', error);
-            }
-        } else {
-            console.error('No file selected');
-        }
-    }
-
     async function updateProfile() {
         const requestBody = { ...data1, user_id : user_id }
         console.log(requestBody)
         try {
-            const response = await fetch('http://localhost:3000/api/user/updateUserDetails', {
+            const response = await fetch('http://localhost:3000/api/createaccount', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -90,9 +61,6 @@
 
                     <p>Aadhar Number:</p>
                     <input bind:value={data1.adhar_no} placeholder="Aadhar Number" style="font-size: 1rem; width:400px; display: block;">
-
-                    <p>Profile Picture</p>
-                    <input type="file" accept=".jpg, .png" on:change={uploadFile} style="font-size: .9rem; width:400px">
                 </div>                
             </div>
             <button class="button"disabled={(!data1.name || !data1.age || !data1.location || !data1.adhar_no || !data1.phone_no)} type="submit" on:click={updateProfile}>Save</button>
