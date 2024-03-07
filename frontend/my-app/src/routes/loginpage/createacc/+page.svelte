@@ -60,11 +60,12 @@
                     <input bind:value={data1.phone_no} placeholder="Phone Number" style="font-size: .9rem; width:400px; display: block;">
 
                     <p>Aadhar Number:</p>
-                    <input bind:value={data1.adhar_no} placeholder="Aadhar Number" style="font-size: 1rem; width:400px; display: block;">
+                    <input bind:value={data1.adhar_no} placeholder="Aadhar Number" style="font-size: .9rem; width:400px; display: block;">
+
+                    <button class="button"disabled={(!data1.name || !data1.age || !data1.location || !data1.adhar_no || !data1.phone_no)} type="submit" on:click={updateProfile}>Save</button>
                 </div>                
             </div>
-            <button class="button"disabled={(!data1.name || !data1.age || !data1.location || !data1.adhar_no || !data1.phone_no)} type="submit" on:click={updateProfile}>Save</button>
-        </div>
+           </div>
     </body> 
 </main>
 
@@ -72,24 +73,21 @@
     .container {
         overflow-y: auto;
         height: 530px;
-        width: 1140px;
+        width: 1520px;
         justify-content: center;
     }
     .container::-webkit-scrollbar {
     width: 10px;
     }
 
-    /* Track (the area behind the scrollbar) */
     .container::-webkit-scrollbar-track {
     background: #f1f1f1;
     }
 
-    /* Handle (the draggable scrolling part) */
     .container::-webkit-scrollbar-thumb {
     background: #888;
     }
 
-    /* Handle on hover */
     .container::-webkit-scrollbar-thumb:hover {
     background: #555;
     }
@@ -98,8 +96,8 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        align-items: left;
-        align-content: left;
+        align-items: center;
+        align-content: center;
     }
 
     .user-info {

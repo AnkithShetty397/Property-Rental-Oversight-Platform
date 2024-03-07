@@ -1,3 +1,15 @@
+<script>
+    import { goto } from "$app/navigation";
+    import { setLoc, setUserId, setHouse_no, setBlockNo } from "$lib/global"
+    function logout(){
+        setLoc("")
+        setBlockNo("")
+        setUserId("")
+        setHouse_no("")
+        goto('/')
+    }
+</script>
+
 <body>
     <div class="container"> 
         <div class="sideblock">
@@ -7,10 +19,11 @@
                 <li><a href="/loginpage/components/user/notifications" class="button-link">Notifications</a></li>
                 <li><a href="/loginpage/components/user/groupchat/" class="button-link">Chatbox</a></li>
                 <li><a href="/loginpage/components/user/" class="button-link">About Us</a></li>
+                <li><button on:click={logout} class="button">logout</button></li>
             </ul>
+            
         </div>
         <slot/>   
-
     </div>
 </body>
 
@@ -63,5 +76,22 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin-right: 20px; 
         text-align: left;
+    }
+    
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 140px;
+      margin: 230px auto auto auto;
+    }
+
+    .button:hover {
+      background-color: #0056b3;
     }
 </style>

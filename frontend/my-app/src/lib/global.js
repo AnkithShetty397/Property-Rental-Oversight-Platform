@@ -17,6 +17,14 @@ export function setLoc(newValue) {
  * Set the value of myVariable
  * @param {string} newValue The new value to assign
  */
+export function setBlockNo(newValue) {
+    block_no = newValue;
+}
+
+/**
+ * Set the value of myVariable
+ * @param {string} newValue The new value to assign
+ */
 export function setUserId(newValue) {
     user_id= newValue;
 }
