@@ -1,6 +1,6 @@
 <body>
     <header>
-        <h1>We will our website later, now bear with it</h1>
+        <h1>Apartment Management System</h1>
     </header>
     <body>
         <slot/> 

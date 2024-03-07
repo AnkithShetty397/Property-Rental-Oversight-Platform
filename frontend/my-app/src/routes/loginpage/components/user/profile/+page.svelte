@@ -1,5 +1,6 @@
-<script lang="ts">
+<script>
     import { user_id } from '$lib/global.js'
+    /** @type {import('./$types').PageData} */
     export let data;
 </script>
 

@@ -1,12 +1,10 @@
-<script lang="ts">
+<script>
     import { goto } from '$app/navigation';
     import { user_id } from '$lib/global.js';
 
+    /** @type {import('./$types').PageData} */
     export let data;
-    console.log(data)
-
     let data1= data.info;
-    console.log(data1)
 
     async function uploadFile() {
         const fileInput = document.querySelector('input[type="file"]');

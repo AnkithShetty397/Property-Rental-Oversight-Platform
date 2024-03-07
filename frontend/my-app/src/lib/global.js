@@ -1,9 +1,9 @@
 /** @type {string} */
 export let loc = ""
 export let house_no = ""
-export let user_id = "0000000001"
+export let user_id = ""
 export let block_no = "101"
-export let user_type = "user"
+export let user_type = ""
 
 /**
  * Set the value of myVariable

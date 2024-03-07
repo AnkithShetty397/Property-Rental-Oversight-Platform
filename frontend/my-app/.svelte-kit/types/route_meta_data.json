@@ -7,11 +7,10 @@
 	"/loginpage/components/owner": [],
 	"/loginpage/components/user": [],
 	"/loginpage/components/user/editprofile": [
-		"src/routes/loginpage/components/user/editprofile/+page.server.js"
+		"src/routes/loginpage/components/user/editprofile/+page.js"
 	],
 	"/loginpage/components/user/groupchat": [
-		"src/routes/loginpage/components/user/groupchat/+page.js",
-		"src/routes/loginpage/components/user/groupchat/+page.server.js"
+		"src/routes/loginpage/components/user/groupchat/+page.js"
 	],
 	"/loginpage/components/user/home": [],
 	"/loginpage/components/user/home/search": [
@@ -22,7 +21,7 @@
 	],
 	"/loginpage/components/user/notifications": [],
 	"/loginpage/components/user/profile": [
-		"src/routes/loginpage/components/user/profile/+page.server.js"
+		"src/routes/loginpage/components/user/profile/+page.js"
 	],
 	"/loginpage/createacc": [],
 	"/loginpage/login": []

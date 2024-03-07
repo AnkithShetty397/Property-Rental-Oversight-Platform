@@ -1,25 +1,13 @@
 <script>
     import { goto } from '$app/navigation';
-    import {user_id, user_type, setUserId, setUserType} from "$lib/global"
+    import { setUserId, setUserType } from "$lib/global"
     let email = '';
     let password = '';
-    let type = 'user'; 
-
-    function loginto(){
-        if(type==="user"){
-            goto('/loginpage/components/user')
-        }else if(type==="employee"){
-            goto('/loginpage/components/employee')
-        }else if(type==="owner"){
-            goto('/loginpage/components/owner')
-        }else if(type==="admin"){
-            goto('/loginpage/components/admin')
-        }
-    }
+    let type = ''; 
 
     async function handleLogin() {
         try {
-            const response = await fetch('YOUR_BACKEND_URL', {
+            const response = await fetch('http://localhost:3000/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -33,12 +21,17 @@
 
             if (response.ok) {
                 const res = await response.json();
+                console.log(res)
                 setUserId(res.user_id)
                 setUserType(type)
-                if(type==="manager"){
-                    goto('/employee')
-                }else{
-                    goto('/home') 
+                if(type==="user"){
+                    goto('/loginpage/components/user')
+                }else if(type==="employee"){
+                    goto('/loginpage/components/employee') 
+                }else if(type==="owner"){
+                    goto('/loginpage/components/owner')
+                }else if(type==="admin"){
+                    goto('/loginpage/components/admin')
                 }
             }
             if(!response.ok){
@@ -67,7 +60,7 @@
         <option value="admin">Admin</option>
     </select>
 
-    <button on:click={loginto}>Login</button>   
+    <button on:click={handleLogin}>Login</button>   
 </div>
 
 <style>

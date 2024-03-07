@@ -5,10 +5,8 @@
     let param = ""
 
     function handleClick() {
-        console.log(loc)
         setLoc(param)
-        console.log(loc)
-        goto('/home/search')
+        goto('/loginpage/components/user/home/search')
     }
 </script>
 

@@ -34,13 +34,13 @@ export const dictionary = {
 		"/loginpage/components/employee": [9],
 		"/loginpage/components/owner": [10],
 		"/loginpage/components/user": [11,[2]],
-		"/loginpage/components/user/editprofile": [~12,[2]],
-		"/loginpage/components/user/groupchat": [~13,[2]],
+		"/loginpage/components/user/editprofile": [12,[2]],
+		"/loginpage/components/user/groupchat": [13,[2]],
 		"/loginpage/components/user/home": [14,[2,3]],
 		"/loginpage/components/user/home/search": [15,[2,3,4]],
 		"/loginpage/components/user/house": [16,[2]],
 		"/loginpage/components/user/notifications": [17,[2]],
-		"/loginpage/components/user/profile": [~18,[2]],
+		"/loginpage/components/user/profile": [18,[2]],
 		"/loginpage/createacc": [19],
 		"/loginpage/login": [20]
 	};

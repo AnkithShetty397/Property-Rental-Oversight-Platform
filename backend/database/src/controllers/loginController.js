@@ -1,5 +1,3 @@
-const axios         = require('axios')
-const pool          = require('../../../server')
 const mysql         = require('mysql')
 
 const connection = mysql.createConnection({
@@ -11,10 +9,11 @@ const connection = mysql.createConnection({
 
 const login = (req, res, next) => {
     const email = req.body.email;
+    const type  = req.body.type;
     const passwordFromBody = req.body.password;
-    const query = 'SELECT password, user_id FROM account_details WHERE email = ?'
+    const query = 'SELECT password, user_id FROM account_details WHERE email = ? and type=?'
 
-    connection.query(query, [email], (error, results, fields) => {
+    connection.query(query, [email,type], (error, results, fields) => {
         if (error) {
             return res.status(500).json({ error: "Internal Server Error" })
         }
