@@ -1,22 +1,29 @@
 {
 	"/": [],
-	"/createacc": [],
-	"/editprofile": [
-		"src/routes/editprofile/+page.server.js"
+	"/loginpage": [],
+	"/loginpage/components": [],
+	"/loginpage/components/admin": [],
+	"/loginpage/components/employee": [],
+	"/loginpage/components/owner": [],
+	"/loginpage/components/user": [],
+	"/loginpage/components/user/editprofile": [
+		"src/routes/loginpage/components/user/editprofile/+page.server.js"
 	],
-	"/groupchat": [
-		"src/routes/groupchat/+page.js",
-		"src/routes/groupchat/+page.server.js"
+	"/loginpage/components/user/groupchat": [
+		"src/routes/loginpage/components/user/groupchat/+page.js",
+		"src/routes/loginpage/components/user/groupchat/+page.server.js"
 	],
-	"/home": [],
-	"/home/search": [
-		"src/routes/home/search/+page.js"
+	"/loginpage/components/user/home": [],
+	"/loginpage/components/user/home/search": [
+		"src/routes/loginpage/components/user/home/search/+page.js"
 	],
-	"/house": [
-		"src/routes/house/+page.js"
+	"/loginpage/components/user/house": [
+		"src/routes/loginpage/components/user/house/+page.js"
 	],
-	"/login": [],
-	"/profile": [
-		"src/routes/profile/+page.server.js"
-	]
+	"/loginpage/components/user/notifications": [],
+	"/loginpage/components/user/profile": [
+		"src/routes/loginpage/components/user/profile/+page.server.js"
+	],
+	"/loginpage/createacc": [],
+	"/loginpage/login": []
 }

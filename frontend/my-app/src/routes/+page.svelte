@@ -4,9 +4,7 @@
 
 <body>
     <div class="content">
-        <h2>About Us</h2>
-        <p>This is a simple static webpage created with HTML and CSS by {name}.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris a massa mollis tristique.</p>
+        <a href="/loginpage" class="button-link">Continue</a>
     </div>
 </body>
 
@@ -26,4 +24,23 @@
         height: 495px;
         width: 1150px
     }
+    
+    .button-link {
+        display: inline-block; 
+        padding: 10px 10px 10px 0px;
+        background-color: #ccc; 
+        color: #000001fb; 
+        text-decoration: none;
+        border: none; 
+        border-radius: 0;
+        transition: background-color 0.3s; 
+        width: 130px; 
+        text-align: center;
+
+    }
+
+    .button-link:hover {
+        background-color: #7b7c82e6; 
+    }
+
 </style>
