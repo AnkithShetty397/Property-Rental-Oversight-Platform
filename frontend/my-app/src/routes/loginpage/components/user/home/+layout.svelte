@@ -44,7 +44,7 @@
         color: #fff;
         border: none;
         padding: 10px 15px;
-        border-radius: 0 25px 25px 0; /* Adjust the border-radius value for rounder corners */
+        border-radius: 0 25px 25px 0;
         cursor: pointer;
         width: 100px;
         font-size: medium;

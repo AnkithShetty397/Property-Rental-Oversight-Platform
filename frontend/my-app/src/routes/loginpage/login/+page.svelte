@@ -59,7 +59,6 @@
         <option value="owner">Owner</option>
         <option value="admin">Admin</option>
     </select>
-
     <button on:click={handleLogin}>Login</button>   
 </div>
 

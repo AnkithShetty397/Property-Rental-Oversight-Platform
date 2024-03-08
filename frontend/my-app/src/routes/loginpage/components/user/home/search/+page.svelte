@@ -6,16 +6,14 @@
   export let data;
   console.log(data)
 
-  /**
- * Handle button click event.
- * @param {string} houseNo - The house number.
- */
-  
-function handleButtonClick(houseNo) {
-    console.log(houseNo)
-    setHouse_no(houseNo)
-    goto('/house');
-}
+    /**
+   * Handle button click event.
+   * @param {string} houseNo - The house number.
+   */
+  function handleButtonClick(houseNo) {
+      setHouse_no(houseNo)
+      goto('/loginpage/components/user/house');
+  }
 </script>
 
 <main>
