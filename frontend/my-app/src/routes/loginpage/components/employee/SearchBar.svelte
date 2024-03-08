@@ -2,6 +2,7 @@
 
 <script>
   let searchTerm = '';
+  let type = "";
 
   function handleSearch() {
     console.log('Search term:', searchTerm);
@@ -24,16 +25,6 @@
     border-radius: 5px 0 0 5px;
     flex-grow: 1;
   }
-
-  .dropdown-arrow {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    background-color: #f9f9f9;
-  }
-
   button {
     margin-left: -1px; /* Overlapping border with the arrow */
     padding: 8px 12px;
@@ -43,11 +34,35 @@
     border: none;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+    height: 34px;
+  }
+  select {
+    padding: 10px; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 0;
+    width: 200px; 
+    transition: border-color 0.3s ease;
+    height: 34px;
+    
+  }
+
+  option {
+      padding: 10px; 
+  }
+
+  select:hover {
+      border-color: #999; 
   }
 </style>
 
 <div class="search-bar">
   <input type="text" bind:value={searchTerm} on:input={handleSearch} placeholder="Search..." />
-  <div class="dropdown-arrow">▼</div>
+  <select id="type" bind:value={type}>
+    <option value="user">All</option>
+    <option value="employee">tenant_id</option>
+    <option value="owner">3</option>
+    <option value="admin">4</option>
+  </select>
   <button on:click={handleSearch}>Search</button>
 </div>
