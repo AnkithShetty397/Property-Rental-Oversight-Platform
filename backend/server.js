@@ -14,6 +14,7 @@ const userdetailsRoute  = require('./database/src/routes/userdetailsRoute');
 const groupchatRoute    = require('./database/src/routes/groupchatRoute');
 const loginRoute        = require('./database/src/routes/loginRoute');
 const createaccountRoute= require('./database/src/routes/createaccountRoute');
+const recordretrievalRoute = require('./database/src/routes/recordretrievalRoute');
 
 // connecting nodejs to mysql
 const mysqldb = mysql.createConnection({
@@ -63,3 +64,4 @@ app.use('/api/user', userdetailsRoute);
 app.use('/api/groupchat',groupchatRoute);
 app.use('/api',loginRoute);
 app.use('/api',createaccountRoute);
+app.use('/api/employee',recordretrievalRoute);
