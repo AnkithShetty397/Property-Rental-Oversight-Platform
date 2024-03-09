@@ -4,7 +4,8 @@ const Schema        = mongoose.Schema
 const complaintSchema = new Schema({
     user_id: String,
     name: String,
-    complaint: String
+    complaint: String,
+    desc: String
 })
 
 const complaintsSchema = new Schema({

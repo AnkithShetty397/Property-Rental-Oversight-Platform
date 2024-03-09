@@ -1,15 +1,38 @@
 <script>
+  import { user_id, block_no } from "$lib/global";
+
   let complaint = '';
   let description = '';
 
   function submitComplaint() {
-    // You can handle the complaint and description data here
-    console.log('Complaint:', complaint);
-    console.log('Description:', description);
+    const data = {
+        user_id: user_id,
+        block_no: block_no,
+        complaint: complaint,
+        desc: description
+    };
 
-    // Reset the input fields after submission
-    complaint = '';
-    description = '';
+    fetch('http://localhost:3000/api/complaints/addComplaint', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Response from server:', data);
+        complaint = '';
+        description = '';
+    })
+    .catch(error => {
+        console.error('Error sending data to server');
+    });
   }
 </script>
 

@@ -42,7 +42,8 @@ const getComplaints = (req,res,next)=>{
 const addComplaint = (req, res, next) => {
     const block_no = req.body.block_no;
     const user_id = req.body.user_id;
-    const message = req.body.message;
+    const message = req.body.complaint;
+    const desc = req.body.desc;
 
     getUserName(user_id, (error, user_name) => {
         if (error) {
@@ -54,7 +55,8 @@ const addComplaint = (req, res, next) => {
         const message_info = {
             user_id: user_id,
             name: user_name,
-            complaint: message
+            complaint: message,
+            desc: desc
         }
 
         Complaints.findOneAndUpdate(
