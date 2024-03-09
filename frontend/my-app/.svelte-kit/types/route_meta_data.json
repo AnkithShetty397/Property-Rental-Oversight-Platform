@@ -6,6 +6,7 @@
 	"/loginpage/components/employee": [],
 	"/loginpage/components/owner": [],
 	"/loginpage/components/user": [],
+	"/loginpage/components/user/complaints": [],
 	"/loginpage/components/user/editprofile": [
 		"src/routes/loginpage/components/user/editprofile/+page.js"
 	],

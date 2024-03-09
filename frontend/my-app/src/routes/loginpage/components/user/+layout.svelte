@@ -18,6 +18,7 @@
                 <li><a href="/loginpage/components/user/home/" class="button-link">Home</a></li>
                 <li><a href="/loginpage/components/user/notifications" class="button-link">Notifications</a></li>
                 <li><a href="/loginpage/components/user/groupchat/chat1" class="button-link">Chatbox</a></li>
+                <li><a href="/loginpage/components/user/complaints" class="button-link">Complaints</a></li>
                 <li><a href="/loginpage/components/user/" class="button-link">About Us</a></li>
                 <li><button on:click={logout} class="button">logout</button></li>
             </ul>

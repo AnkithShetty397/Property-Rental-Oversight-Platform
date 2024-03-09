@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
@@ -32,7 +32,10 @@ mysqldb.connect(function (err) {
 
 // connecting nodejs application to mongodb database using mongoose
 //mongoose.connect("", {}); // default port //nosqldb is the name of mongodb
-mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
+mongoose.connect(
+  "mongodb+srv://rohithreddyrr4:@cluster0.sz36yag.mongodb.net/",
+  {}
+); // default port //nosqldb is the name of mongodb
 const db = mongoose.connection;
 
 // logging
@@ -68,4 +71,4 @@ app.use("/api/groupchat", groupchatRoute);
 app.use("/api", loginRoute);
 app.use("/api", createaccountRoute);
 app.use("/api/employee", recordretrievalRoute);
-app.use("/api/complaints",complaintRoute);
+app.use("/api/complaints", complaintRoute);
