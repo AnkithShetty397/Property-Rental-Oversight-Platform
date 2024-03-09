@@ -89,7 +89,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
       width: 140px;
-      margin: 230px auto auto auto;
+      margin: 200px auto auto auto;
     }
 
     .button:hover {

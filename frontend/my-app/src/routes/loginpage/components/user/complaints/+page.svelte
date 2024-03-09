@@ -21,6 +21,16 @@
     margin: 2rem;
   }
 
+  .complaint-form{
+    width: 1100px
+  }
+  .textarea-constraints {
+    max-width: 1082px;
+    min-width: 1082px;
+    min-height: 100px;
+    max-height: 188px;
+  }
+
   h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -61,12 +71,12 @@
 <main>
   <h1>Complaint Form</h1>
 
-  <form on:submit|preventDefault={submitComplaint}>
+  <form on:submit|preventDefault={submitComplaint} class="complaint-form">
     <label for="complaint">Complaint:</label>
     <input type="text" id="complaint" bind:value={complaint} />
 
     <label for="description">Description:</label>
-    <textarea id="description" bind:value={description}></textarea>
+    <textarea id="description" bind:value={description} class="textarea-constraints"></textarea>
 
     <button type="submit">Submit</button>
   </form>
