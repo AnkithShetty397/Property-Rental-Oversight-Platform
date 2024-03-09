@@ -9,7 +9,7 @@
         setLoc(param);
         console.log(loc);
         console.log("search button clicked");
-        goto('/loginpage/components/user/search1');
+        goto('/loginpage/components/user/search1')
     }
 </script>
 

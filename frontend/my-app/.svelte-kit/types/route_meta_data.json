@@ -13,15 +13,18 @@
 		"src/routes/loginpage/components/user/groupchat/+page.js"
 	],
 	"/loginpage/components/user/home": [],
-	"/loginpage/components/user/home/search": [
-		"src/routes/loginpage/components/user/home/search/+page.js"
-	],
 	"/loginpage/components/user/house": [
 		"src/routes/loginpage/components/user/house/+page.js"
 	],
 	"/loginpage/components/user/notifications": [],
 	"/loginpage/components/user/profile": [
 		"src/routes/loginpage/components/user/profile/+page.js"
+	],
+	"/loginpage/components/user/search1": [
+		"src/routes/loginpage/components/user/search1/+page.js"
+	],
+	"/loginpage/components/user/search2": [
+		"src/routes/loginpage/components/user/search2/+page.js"
 	],
 	"/loginpage/createacc": [],
 	"/loginpage/login": []
