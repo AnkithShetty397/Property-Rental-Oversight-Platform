@@ -1,10 +1,10 @@
 const GroupChat     = require('../models/GroupChat')
-const mysql         = require('mysql')
+const mysql         = require('mysql2')
 
 const connection = mysql.createConnection({
     host:"localhost",
     user: "root",
-    password: "5gws274aws",
+    password: "password",
     database: "ams_database"
 })
 
