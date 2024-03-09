@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const mysql = require("mysql");
 const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
@@ -15,6 +15,7 @@ const groupchatRoute = require("./database/src/routes/groupchatRoute");
 const loginRoute = require("./database/src/routes/loginRoute");
 const createaccountRoute = require("./database/src/routes/createaccountRoute");
 const recordretrievalRoute = require("./database/src/routes/recordretrievalRoute");
+const complaintRoute = require("./database/src/routes/complaintRoute");
 
 // connecting nodejs to mysql
 const mysqldb = mysql.createConnection({
@@ -30,7 +31,8 @@ mysqldb.connect(function (err) {
 });
 
 // connecting nodejs application to mongodb database using mongoose
-mongoose.connect("", {}); // default port //nosqldb is the name of mongodb
+//mongoose.connect("", {}); // default port //nosqldb is the name of mongodb
+mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
 const db = mongoose.connection;
 
 // logging
@@ -66,3 +68,4 @@ app.use("/api/groupchat", groupchatRoute);
 app.use("/api", loginRoute);
 app.use("/api", createaccountRoute);
 app.use("/api/employee", recordretrievalRoute);
+app.use("/api/complaints",complaintRoute);

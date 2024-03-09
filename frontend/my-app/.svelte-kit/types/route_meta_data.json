@@ -9,8 +9,11 @@
 	"/loginpage/components/user/editprofile": [
 		"src/routes/loginpage/components/user/editprofile/+page.js"
 	],
-	"/loginpage/components/user/groupchat": [
-		"src/routes/loginpage/components/user/groupchat/+page.js"
+	"/loginpage/components/user/groupchat/chat1": [
+		"src/routes/loginpage/components/user/groupchat/chat1/+page.js"
+	],
+	"/loginpage/components/user/groupchat/chat2": [
+		"src/routes/loginpage/components/user/groupchat/chat2/+page.js"
 	],
 	"/loginpage/components/user/home": [],
 	"/loginpage/components/user/house": [

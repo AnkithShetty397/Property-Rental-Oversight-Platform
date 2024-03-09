@@ -1,11 +1,12 @@
 <script>
+    import { goto } from '$app/navigation';
     import { user_id, block_no,user_type } from '$lib/global.js'
     /** @type {import('./$types').PageData} */
     export let data
     let newMessage = ""
     
     function sendMessage() {
-      const messageToSend = newMessage;
+      let messageToSend = newMessage;
 
       const requestBody = {
           user_id: user_id,
@@ -26,7 +27,8 @@
               throw new Error(`HTTP error! Status: ${response.status}`)
           }
           console.log('Message sent successfully')
-          window.location.reload()
+          messageToSend=""
+          goto("/loginpage/components/user/groupchat/chat1")
       })
       .catch(error => {
           console.error('Error sending message:', error)

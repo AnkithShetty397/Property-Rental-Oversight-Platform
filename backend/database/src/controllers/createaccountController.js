@@ -48,7 +48,7 @@ const createAccount = (req, res, next) => {
     const adhar_no = req.body.adhar_no
     const location = req.body.location
     const password = req.body.password
-    const type = req.body.type
+    const type = "user"
 
     generate_UserID((err, user_id) => {
         if (err) {

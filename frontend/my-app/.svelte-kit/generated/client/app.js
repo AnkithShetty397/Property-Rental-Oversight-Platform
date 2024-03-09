@@ -24,29 +24,32 @@ export const nodes = [
 	() => import('./nodes/20'),
 	() => import('./nodes/21'),
 	() => import('./nodes/22'),
-	() => import('./nodes/23')
+	() => import('./nodes/23'),
+	() => import('./nodes/24'),
+	() => import('./nodes/25')
 ];
 
 export const server_loads = [];
 
 export const dictionary = {
-		"/": [7],
-		"/loginpage": [8],
-		"/loginpage/components": [9],
-		"/loginpage/components/admin": [10],
-		"/loginpage/components/employee": [11],
-		"/loginpage/components/owner": [12],
-		"/loginpage/components/user": [13,[2]],
-		"/loginpage/components/user/editprofile": [14,[2]],
-		"/loginpage/components/user/groupchat": [15,[2]],
-		"/loginpage/components/user/home": [16,[2,3]],
-		"/loginpage/components/user/house": [17,[2,4]],
-		"/loginpage/components/user/notifications": [18,[2]],
-		"/loginpage/components/user/profile": [19,[2]],
-		"/loginpage/components/user/search1": [20,[2,5]],
-		"/loginpage/components/user/search2": [21,[2,6]],
-		"/loginpage/createacc": [22],
-		"/loginpage/login": [23]
+		"/": [8],
+		"/loginpage": [9,[2]],
+		"/loginpage/components": [10,[2]],
+		"/loginpage/components/admin": [11,[2]],
+		"/loginpage/components/employee": [12,[2]],
+		"/loginpage/components/owner": [13,[2]],
+		"/loginpage/components/user": [14,[2,3]],
+		"/loginpage/components/user/editprofile": [15,[2,3]],
+		"/loginpage/components/user/groupchat/chat1": [16,[2,3]],
+		"/loginpage/components/user/groupchat/chat2": [17,[2,3]],
+		"/loginpage/components/user/home": [18,[2,3,4]],
+		"/loginpage/components/user/house": [19,[2,3,5]],
+		"/loginpage/components/user/notifications": [20,[2,3]],
+		"/loginpage/components/user/profile": [21,[2,3]],
+		"/loginpage/components/user/search1": [22,[2,3,6]],
+		"/loginpage/components/user/search2": [23,[2,3,7]],
+		"/loginpage/createacc": [24,[2]],
+		"/loginpage/login": [25,[2]]
 	};
 
 export const hooks = {
