@@ -6,7 +6,7 @@
 
   function handleSearch() {
     console.log('Search term:', searchTerm);
-    // Implement your search logic here
+    //fetch data
   }
 </script>
 
@@ -37,14 +37,13 @@
     height: 34px;
   }
   select {
-    padding: 10px; 
+    padding: 3px; 
     font-size: 16px; 
     border: 1px solid #ccc; 
     border-radius: 0;
     width: 200px; 
     transition: border-color 0.3s ease;
     height: 34px;
-    
   }
 
   option {
@@ -60,9 +59,9 @@
   <input type="text" bind:value={searchTerm} on:input={handleSearch} placeholder="Search..." />
   <select id="type" bind:value={type}>
     <option value="user">All</option>
-    <option value="employee">tenant_id</option>
-    <option value="owner">3</option>
-    <option value="admin">4</option>
+    <option value="employee">tenant id</option>
+    <option value="owner">Payment status</option>
+    <option value="admin">Date</option>
   </select>
   <button on:click={handleSearch}>Search</button>
 </div>

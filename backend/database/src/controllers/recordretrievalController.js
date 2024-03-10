@@ -22,11 +22,8 @@ const retrieveRentalRecords = (req, res, next) => {
     case "tenant_id":
       query = "SELECT * FROM rental_records WHERE tenant_id=?";
       break;
-    case "before":
-      query = "SELECT * FROM rental_records WHERE end_date<=?";
-      break;
-    case "after":
-      query = "SELECT * FROM rental_records WHERE end_date>=?";
+    case "date":
+      query = "SELECT * FROM rental_records WHERE end_date=?";
       break;
     default:
       return res.status(400).json({ error: "Invalid type specified" });

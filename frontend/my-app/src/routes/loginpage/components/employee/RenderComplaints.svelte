@@ -63,7 +63,8 @@
       {#each complaints as complaint (complaint._id)}
         <li>
           <div>
-            <h3>{complaint.title}</h3>
+            <h3>{complaint.name}</h3>
+            <p>{complaint.complaint}</p>
             <p>{complaint.description}</p>
           </div>
           <button class="mark-as-done-button" on:click={() => markAsDone(complaint._id)}>

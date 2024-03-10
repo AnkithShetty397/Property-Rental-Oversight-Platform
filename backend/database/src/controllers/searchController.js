@@ -33,10 +33,9 @@ const searchHouse = (req, res, next) => {
 };
 
 const getHouseDetails = (req, res, next) => {
-  const house_no = req.body.room_no;
+  const house_no = req.body.house_no;
 
-  const query =
-    "select house_no, house_type, house_floor, owner_name, phone_no from house h join (owner o join identity i on o.adhar_no=i.adhar_id) as c on h.owner_id=c.owner_id where house_no=?";
+  const query ="SELECT h.house_no, h.house_type, h.house_floor, b.block_name, b.city, o.owner_name, i.phone_no FROM house h JOIN owner o ON h.owner_id = o.owner_id LEFT JOIN block b ON h.block_no = b.block_no LEFT JOIN identity i ON o.adhar_no = i.adhar_id WHERE h.house_no =?";
   connection.query(query, [house_no], (error, results, fields) => {
     if (error) {
       console.error("Error fetching sql data:", error);
@@ -56,7 +55,7 @@ const getHouseDetails = (req, res, next) => {
       })
       .catch((error) => {
         console.error("Error fetching data from API:", error);
-        res.status(500).json({ error: "Error fetching nosql data from API" });
+        res.status(500).json({ error: "Error fetching data from API" });
       });
   });
 };

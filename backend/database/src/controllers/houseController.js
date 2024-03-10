@@ -63,20 +63,6 @@ const getDescription = (req,res,next)=>{
     })
 }
 
-const getHouseList = (req,res,next)=>{
-    const house_no = req.query.loc
-    const query = 'select house_no from house h where block_no in (select block_no from block b where city=? and occupancy_status=empty)'
-    connection.query(query,[house_no],(error,results,fields)=>{
-        if(error){
-            console.error('Error fetching data: ',error)
-            res.status(500).json({error:'Error fetching data'})
-            return
-        }
-        res.status(200).json(results)
-    })
-
-}
-
 module.exports = {
-    getFeaturesandDesc, getFeatures, getDescription, getHouseList
+    getFeaturesandDesc, getFeatures, getDescription
 }

@@ -5,10 +5,6 @@
   import RenderComplaints from './RenderComplaints.svelte';
   import { block_no } from '$lib/global';
 
-  /** @type {import('./$types').PageData} */
-  export let data;
-  console.log(data);
-
   let rentalButtonText = 'Rental Records';
   let complaintsButtonText = 'Complaints';
   let showSearchBar = false;
@@ -19,29 +15,22 @@
     showSearchBar = true;
   }
 
-  async function renderComplaints() {
+  async function fetchComplaints() {
     try {
-      const response = await fetch(`http://localhost:3000/api/complaints/getComplaints?block_no=`);
+      const response = await fetch(`http://localhost:3000/api/complaints/getComplaints?block_no=${block_no}`);
       const data = await response.json();
 
+      console.log("Response from server:", data); // Log the entire data object
+
       if (response.ok) {
-        complaints = data.response;
-        console.log(complaints);
+        complaints = data.response[0].complaints;
+        console.log("Complaints data:", complaints);
       } else {
         console.error('Failed to fetch complaints:', data.message);
       }
     } catch (error) {
       console.error('Error fetching complaints:', error.message);
     }
-  }
-
-  // Function to generate random complaints
-  function generateRandomComplaints() {
-    const complaints = [];
-    for (let i = 1; i <= count; i++) {
-      complaints.push({ _id: i, title: `Complaint ${i}`, description: `Issue ${i}` });
-    }
-    return complaints;
   }
 
   // Function to reset button text and hide SearchBar on component mount
@@ -55,6 +44,26 @@
     showSearchBar = false;
   }
 </script>
+
+
+<div>
+  <div class="button-container">
+    <button class="custom-button rental-button" on:click={changeRentalText}>
+      {rentalButtonText}
+    </button>
+
+    <button class="custom-button complaints-button" on:click={fetchComplaints}>
+      {complaintsButtonText}
+    </button>
+  </div>
+
+  {#if showSearchBar}
+    <SearchBar />
+  {:else}
+    <RenderComplaints {complaints} />
+  {/if}
+</div>
+
 
 <style>
   .custom-button {
@@ -90,24 +99,4 @@
     justify-content: space-around;
     margin:25px;
   }
-
-  
 </style>
-
-<div>
-  <div class="button-container">
-    <button class="custom-button rental-button" on:click={changeRentalText}>
-      {rentalButtonText}
-    </button>
-
-    <button class="custom-button complaints-button" on:click={renderComplaints}>
-      {complaintsButtonText}
-    </button>
-  </div>
-
-  {#if showSearchBar}
-    <SearchBar />
-  {:else}
-    <RenderComplaints {complaints} />
-  {/if}
-</div>
