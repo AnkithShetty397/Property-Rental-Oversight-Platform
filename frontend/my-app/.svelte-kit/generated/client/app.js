@@ -30,7 +30,9 @@ export const nodes = [
 	() => import('./nodes/26'),
 	() => import('./nodes/27'),
 	() => import('./nodes/28'),
-	() => import('./nodes/29')
+	() => import('./nodes/29'),
+	() => import('./nodes/30'),
+	() => import('./nodes/31')
 ];
 
 export const server_loads = [];
@@ -40,23 +42,25 @@ export const dictionary = {
 		"/loginpage": [10,[2]],
 		"/loginpage/components": [11,[2]],
 		"/loginpage/components/admin": [12,[2]],
-		"/loginpage/components/employee": [13,[2]],
-		"/loginpage/components/owner": [14,[2]],
-		"/loginpage/components/owner/inbox": [15,[2]],
-		"/loginpage/components/owner/request": [16,[2]],
-		"/loginpage/components/user": [17,[2,3]],
-		"/loginpage/components/user/complaints": [18,[2,3]],
-		"/loginpage/components/user/editprofile": [19,[2,3,4]],
-		"/loginpage/components/user/groupchat/chat1": [20,[2,3]],
-		"/loginpage/components/user/groupchat/chat2": [21,[2,3]],
-		"/loginpage/components/user/home": [22,[2,3]],
-		"/loginpage/components/user/house": [23,[2,3,5]],
-		"/loginpage/components/user/notifications": [24,[2,3]],
-		"/loginpage/components/user/profile": [25,[2,3]],
-		"/loginpage/components/user/search/search1": [26,[2,3,6]],
-		"/loginpage/components/user/search/search2": [27,[2,3,7]],
-		"/loginpage/createacc": [28,[2]],
-		"/loginpage/login": [29,[2,8]]
+		"/loginpage/components/admin/alteremployees": [13,[2]],
+		"/loginpage/components/admin/createowners": [14,[2]],
+		"/loginpage/components/employee": [15,[2]],
+		"/loginpage/components/owner": [16,[2]],
+		"/loginpage/components/owner/inbox": [17,[2]],
+		"/loginpage/components/owner/request": [18,[2]],
+		"/loginpage/components/user": [19,[2,3]],
+		"/loginpage/components/user/complaints": [20,[2,3]],
+		"/loginpage/components/user/editprofile": [21,[2,3,4]],
+		"/loginpage/components/user/groupchat/chat1": [22,[2,3]],
+		"/loginpage/components/user/groupchat/chat2": [23,[2,3]],
+		"/loginpage/components/user/home": [24,[2,3]],
+		"/loginpage/components/user/house": [25,[2,3,5]],
+		"/loginpage/components/user/notifications": [26,[2,3]],
+		"/loginpage/components/user/profile": [27,[2,3]],
+		"/loginpage/components/user/search/search1": [28,[2,3,6]],
+		"/loginpage/components/user/search/search2": [29,[2,3,7]],
+		"/loginpage/createacc": [30,[2]],
+		"/loginpage/login": [31,[2,8]]
 	};
 
 export const hooks = {

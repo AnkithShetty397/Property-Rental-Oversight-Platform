@@ -3,6 +3,8 @@
 	"/loginpage": [],
 	"/loginpage/components": [],
 	"/loginpage/components/admin": [],
+	"/loginpage/components/admin/alteremployees": [],
+	"/loginpage/components/admin/createowners": [],
 	"/loginpage/components/employee": [],
 	"/loginpage/components/owner": [],
 	"/loginpage/components/owner/inbox": [],
