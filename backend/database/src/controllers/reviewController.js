@@ -3,7 +3,7 @@ const Review        =require('../models/Review')
 
 //show all the reviews of a house
 const getReviews_houseno = (req, res, next)=>{
-    const houseNo  =req.body.house_no
+    const houseNo  =req.query.house_no
     Review.find({house_no : houseNo})
     .then(response=>{
         res.json({

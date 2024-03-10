@@ -8,6 +8,19 @@ const connection = mysql.createConnection({
   database: "ams_database",
 });
 
+const getUserName= (req, res, next) => {
+  const user_id = req.query.user_id;
+  const query = "select t.tenant_name from tenant t join account_details a on t.user_id=a.user_id where a.user_id=?"
+  connection.query(query, [user_id], (error, results, fields) => {
+    if (error) {
+      console.error("Error fetching data: ", error);
+      res.status(500).json({ error: "Error fetching data" });
+      return;
+    }
+    res.status(200).json(results);
+  });
+};
+
 const getUserDetails = (req, res, next) => {
   const user_id = req.query.user_id;
   const query =
@@ -92,4 +105,5 @@ const updateUserDetails = (req, res, next) => {
 module.exports = {
   getUserDetails,
   updateUserDetails,
+  getUserName
 };

@@ -1,23 +1,36 @@
-import { house_no } from '$lib/global.js'
+import { house_no } from '$lib/global.js';
 
 /** @type {import('./$types').PageLoad} */
-export const load = async()=>{
-    /*
-    let response = await fetch(`http://localhost:3000/api/house/getHouseDetails?${house_no}`);
-    const res = await response.json()
-    return{
-        house_no: res.house_no,
-        house_type: res.house_type,
-        house_floor:res.house_floor,
-        block_name: res.block_name,
-        block_city: res.city,
-        owner_name: res.owner_name,
-        owner_phoneno: res.phone_no
+export const load = async () => {
+    try {
+        // Fetch house details
+        let response = await fetch(`http://localhost:3000/api/search/getHouseDetails?house_no=${house_no}`);
+        const houseData = await response.json();
+
+        if (houseData.length === 0) {
+            return {
+                error: "No house data found"
+            };
+        }
+
+        const houseInfo = houseData[0];
+
+        let reviewsResponse = await fetch(`http://localhost:3000/api/review/getHouseReview?house_no=${house_no}`);
+        const reviewsData = await reviewsResponse.json();
+
+        return {
+            house_no: houseInfo.house_no,
+            house_type: houseInfo.house_type,
+            house_floor: houseInfo.house_floor,
+            block_name: houseInfo.block_name,
+            block_city: houseInfo.city, 
+            rent: houseInfo.rent,
+            reviews: reviewsData 
+        };
+    } catch (error) {
+        return {
+            error: "Failed to load data"
+        };
     }
-    */
-    return {
-        house_no: house_no,
-        house_details: "edwe31",
-        reviews:[{user_name:"Ram",message:"nice",rating:5},{user_name:"Tom",message:"cool",rating:4},{user_name:"Sam",message:"okayish",rating:2}]
-    }
-}
+};
+

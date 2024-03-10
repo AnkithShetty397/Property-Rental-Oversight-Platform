@@ -4,6 +4,6 @@ const router        =express.Router()
 const searchController = require('../controllers/searchController')
 
 router.get('/searchHouse',searchController.searchHouse)
-router.post('/getHouseDetails',searchController.getHouseDetails)
+router.get('/getHouseDetails',searchController.getHouseDetails)
 
 module.exports = router
