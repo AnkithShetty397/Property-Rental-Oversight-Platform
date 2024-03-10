@@ -9,13 +9,13 @@
         setLoc(param);
         console.log(loc);
         console.log("search button clicked");
-        goto('/loginpage/components/user/search2')
+        goto('/loginpage/components/user/search/search1')
     }
 </script>
 
 <body>
     <div class="search-container">
-        <input type="text" placeholder={loc === '' ? "Search..." : loc} bind:value={param}>
+        <input type="text" placeholder="Search..." bind:value={param}>
         <button type="submit" on:click={handleClick} ><i class="fa fa-search"></i>Search</button>
     </div>
     <div>

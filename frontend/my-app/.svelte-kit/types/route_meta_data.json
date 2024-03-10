@@ -24,11 +24,11 @@
 	"/loginpage/components/user/profile": [
 		"src/routes/loginpage/components/user/profile/+page.js"
 	],
-	"/loginpage/components/user/search1": [
-		"src/routes/loginpage/components/user/search1/+page.js"
+	"/loginpage/components/user/search/search1": [
+		"src/routes/loginpage/components/user/search/search1/+page.js"
 	],
-	"/loginpage/components/user/search2": [
-		"src/routes/loginpage/components/user/search2/+page.js"
+	"/loginpage/components/user/search/search2": [
+		"src/routes/loginpage/components/user/search/search2/+page.js"
 	],
 	"/loginpage/createacc": [],
 	"/loginpage/login": []
