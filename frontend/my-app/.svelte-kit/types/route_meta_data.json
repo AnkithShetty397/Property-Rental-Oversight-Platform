@@ -5,7 +5,9 @@
 	"/loginpage/components/admin": [],
 	"/loginpage/components/admin/alteremployees": [],
 	"/loginpage/components/admin/createowners": [],
-	"/loginpage/components/employee": [],
+	"/loginpage/components/employee": [
+		"src/routes/loginpage/components/employee/+page.js"
+	],
 	"/loginpage/components/owner": [],
 	"/loginpage/components/owner/inbox": [],
 	"/loginpage/components/owner/request": [],

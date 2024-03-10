@@ -1,8 +1,13 @@
-<script lang="ts">
+<script>
   import { onMount } from 'svelte';
 
   import SearchBar from './SearchBar.svelte';
   import RenderComplaints from './RenderComplaints.svelte';
+  import { block_no } from '$lib/global';
+
+  /** @type {import('./$types').PageData} */
+  export let data;
+  console.log(data);
 
   let rentalButtonText = 'Rental Records';
   let complaintsButtonText = 'Complaints';
@@ -15,9 +20,19 @@
   }
 
   async function renderComplaints() {
-    // Simulating fetching data from the server
-    complaints = generateRandomComplaints();
-    console.log(complaints);
+    try {
+      const response = await fetch(`http://localhost:3000/api/complaints/getComplaints?block_no=`);
+      const data = await response.json();
+
+      if (response.ok) {
+        complaints = data.response;
+        console.log(complaints);
+      } else {
+        console.error('Failed to fetch complaints:', data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching complaints:', error.message);
+    }
   }
 
   // Function to generate random complaints
