@@ -1,5 +1,5 @@
 <script>
-    let name="User";
+    
 </script>
 
 <body>

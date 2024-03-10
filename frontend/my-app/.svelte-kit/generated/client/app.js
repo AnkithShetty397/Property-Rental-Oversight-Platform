@@ -28,32 +28,31 @@ export const nodes = [
 	() => import('./nodes/24'),
 	() => import('./nodes/25'),
 	() => import('./nodes/26'),
-	() => import('./nodes/27'),
-	() => import('./nodes/28')
+	() => import('./nodes/27')
 ];
 
 export const server_loads = [];
 
 export const dictionary = {
-		"/": [10],
-		"/loginpage": [11,[2]],
-		"/loginpage/components": [12,[2]],
-		"/loginpage/components/admin": [13,[2]],
-		"/loginpage/components/employee": [14,[2]],
-		"/loginpage/components/owner": [15,[2]],
-		"/loginpage/components/user": [16,[2,3]],
-		"/loginpage/components/user/complaints": [17,[2,3]],
-		"/loginpage/components/user/editprofile": [18,[2,3,4]],
-		"/loginpage/components/user/groupchat/chat1": [19,[2,3]],
-		"/loginpage/components/user/groupchat/chat2": [20,[2,3]],
-		"/loginpage/components/user/home": [21,[2,3,5]],
-		"/loginpage/components/user/house": [22,[2,3,6]],
-		"/loginpage/components/user/notifications": [23,[2,3]],
-		"/loginpage/components/user/profile": [24,[2,3]],
-		"/loginpage/components/user/search/search1": [25,[2,3,7]],
-		"/loginpage/components/user/search/search2": [26,[2,3,8]],
-		"/loginpage/createacc": [27,[2]],
-		"/loginpage/login": [28,[2,9]]
+		"/": [9],
+		"/loginpage": [10,[2]],
+		"/loginpage/components": [11,[2]],
+		"/loginpage/components/admin": [12,[2]],
+		"/loginpage/components/employee": [13,[2]],
+		"/loginpage/components/owner": [14,[2]],
+		"/loginpage/components/user": [15,[2,3]],
+		"/loginpage/components/user/complaints": [16,[2,3]],
+		"/loginpage/components/user/editprofile": [17,[2,3,4]],
+		"/loginpage/components/user/groupchat/chat1": [18,[2,3]],
+		"/loginpage/components/user/groupchat/chat2": [19,[2,3]],
+		"/loginpage/components/user/home": [20,[2,3]],
+		"/loginpage/components/user/house": [21,[2,3,5]],
+		"/loginpage/components/user/notifications": [22,[2,3]],
+		"/loginpage/components/user/profile": [23,[2,3]],
+		"/loginpage/components/user/search/search1": [24,[2,3,6]],
+		"/loginpage/components/user/search/search2": [25,[2,3,7]],
+		"/loginpage/createacc": [26,[2]],
+		"/loginpage/login": [27,[2,8]]
 	};
 
 export const hooks = {

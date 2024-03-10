@@ -27,8 +27,9 @@
               <span class="label"></span>
             </div>
             <div class="text-content">
-              <h3>Title: {house.house_no}</h3>
-              <p>Description goes here...{house.block_no}</p>
+              <h3>House number: {house.house_no}</h3>
+              <p>Block number: {house.block_no}</p>
+              <p>Description goes here...</p>
             </div>
             <button class="open-button" on:click={() => handleButtonClick(house.house_no)}>Open</button>
         </div>

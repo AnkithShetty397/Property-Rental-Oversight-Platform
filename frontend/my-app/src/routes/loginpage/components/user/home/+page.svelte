@@ -1,31 +1,55 @@
 <script>
+    import Home  from './home.svelte'
+    import { goto } from '$app/navigation';
+    import { loc, setLoc } from '$lib/global.js'
 
+    let param = ""
+
+    function handleClick() {
+        setLoc(param);
+        goto('/loginpage/components/user/search/search1')
+    }
 </script>
 
 <body>
-    <div class="content">
-        <h2>Home</h2>
-        <p>This is a simple static webpage created with HTML and CSS.</p>
-        <p>description.</p>
+    <div class="search-container">
+        <input type="text" placeholder="Search..." bind:value={param}>
+        <button type="submit" on:click={handleClick} ><i class="fa fa-search"></i>Search</button>
+    </div>
+    <div>
+        <Home/>
     </div>
 </body>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f0f0;
-    }
-    .content {
-        flex-grow: 1;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        height: 417px;
-        width: 1100px;
-        margin: auto auto auto auto;      
+    .search-container {
+        display: flex;
+        border-radius: 25px 0 0 25px; 
+        overflow: hidden;
+        height: 50px;
+        width: 1130px;
+        margin: auto auto 20px 5px;
     }
     
+    .search-container input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 25px 0 0 25px;
+        font-size: medium;
+        width: 1100px;
+    }
+    
+    .search-container button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 0 25px 25px 0;
+        cursor: pointer;
+        width: 100px;
+        font-size: medium;
+    }
 </style>
+
+  

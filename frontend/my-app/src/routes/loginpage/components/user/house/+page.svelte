@@ -29,25 +29,27 @@
     </div>
     <div class="review-container">
       <h3>Reviews</h3>
-      {#if data.reviews && data.reviews.length > 0}
-        {#each data.reviews as review}
-          <div class="review">
-            <div class="user-name">{review.user_name}</div>
-            <div class="rating">
-              {#each Array(review.rating) as _, i}
-                {#if i < 5}
-                  <span class="{i < review.rating ? 'star filled' : 'star'}">★</span>
-                {/if}
-              {/each}
+      <div class="scrollable-reviews">
+        {#if data.reviews && data.reviews.length > 0}
+          {#each data.reviews as review}
+            <div class="review">
+              <div class="user-name">{review.user_name}</div>
+              <div class="rating">
+                {#each Array(review.rating) as _, i}
+                  {#if i < 5}
+                    <span class="{i < review.rating ? 'star filled' : 'star'}">★</span>
+                  {/if}
+                {/each}
+              </div>
+              <div class="message">
+                <p>{review.message}</p>
+              </div>
             </div>
-            <div class="message">
-              <p>{review.message}</p>
-            </div>
-          </div>
-        {/each}
-      {:else}
-        <p>No reviews yet</p>
-      {/if}
+          {/each}
+        {:else}
+          <p>No reviews yet</p>
+        {/if}
+      </div>
     </div>
   </div>
 </main>
@@ -123,13 +125,40 @@
       margin-top: 20px;
     }
 
+
   .review {    
     display: flex;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
-    width: 1057px
+    width: 940px
+  }
+    .scrollable-reviews {
+    max-height: 300px; 
+    overflow-y: auto;
+    margin-top: 20px; 
+    scrollbar-width: thin;
+  }
+    
+  .scrollable-reviews::-webkit-scrollbar {
+        width: 10px;
+  }
+
+  .scrollable-reviews::-webkit-scrollbar-track {
+        background: #f1f1f1;
+  }
+
+  .scrollable-reviews::-webkit-scrollbar-thumb {
+        background: #888;
+  }
+
+  .scrollable-reviews::-webkit-scrollbar-thumb:hover {
+        background: #676767;
+  }
+
+  .review-container {
+    width: 100%; /* Ensure it spans the whole width */
   }
   .star {
     color: grey;
@@ -147,18 +176,18 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 1057px;
-}
+  }
 
-.user-name {
-  padding: 10px;
-}
+  .user-name {
+    padding: 10px;
+  }
 
-.rating {
-  padding: 10px;
-  margin-left: auto;
-}
+  .rating {
+    padding: 10px;
+    margin-left: auto;
+  }
 
-.message {
-  padding: 10px;
-}
+  .message {
+    padding: 10px;
+  }
 </style>
