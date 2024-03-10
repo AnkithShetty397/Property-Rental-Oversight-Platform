@@ -28,7 +28,9 @@ export const nodes = [
 	() => import('./nodes/24'),
 	() => import('./nodes/25'),
 	() => import('./nodes/26'),
-	() => import('./nodes/27')
+	() => import('./nodes/27'),
+	() => import('./nodes/28'),
+	() => import('./nodes/29')
 ];
 
 export const server_loads = [];
@@ -40,19 +42,21 @@ export const dictionary = {
 		"/loginpage/components/admin": [12,[2]],
 		"/loginpage/components/employee": [13,[2]],
 		"/loginpage/components/owner": [14,[2]],
-		"/loginpage/components/user": [15,[2,3]],
-		"/loginpage/components/user/complaints": [16,[2,3]],
-		"/loginpage/components/user/editprofile": [17,[2,3,4]],
-		"/loginpage/components/user/groupchat/chat1": [18,[2,3]],
-		"/loginpage/components/user/groupchat/chat2": [19,[2,3]],
-		"/loginpage/components/user/home": [20,[2,3]],
-		"/loginpage/components/user/house": [21,[2,3,5]],
-		"/loginpage/components/user/notifications": [22,[2,3]],
-		"/loginpage/components/user/profile": [23,[2,3]],
-		"/loginpage/components/user/search/search1": [24,[2,3,6]],
-		"/loginpage/components/user/search/search2": [25,[2,3,7]],
-		"/loginpage/createacc": [26,[2]],
-		"/loginpage/login": [27,[2,8]]
+		"/loginpage/components/owner/inbox": [15,[2]],
+		"/loginpage/components/owner/request": [16,[2]],
+		"/loginpage/components/user": [17,[2,3]],
+		"/loginpage/components/user/complaints": [18,[2,3]],
+		"/loginpage/components/user/editprofile": [19,[2,3,4]],
+		"/loginpage/components/user/groupchat/chat1": [20,[2,3]],
+		"/loginpage/components/user/groupchat/chat2": [21,[2,3]],
+		"/loginpage/components/user/home": [22,[2,3]],
+		"/loginpage/components/user/house": [23,[2,3,5]],
+		"/loginpage/components/user/notifications": [24,[2,3]],
+		"/loginpage/components/user/profile": [25,[2,3]],
+		"/loginpage/components/user/search/search1": [26,[2,3,6]],
+		"/loginpage/components/user/search/search2": [27,[2,3,7]],
+		"/loginpage/createacc": [28,[2]],
+		"/loginpage/login": [29,[2,8]]
 	};
 
 export const hooks = {

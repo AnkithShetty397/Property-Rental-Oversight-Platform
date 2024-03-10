@@ -5,6 +5,8 @@
 	"/loginpage/components/admin": [],
 	"/loginpage/components/employee": [],
 	"/loginpage/components/owner": [],
+	"/loginpage/components/owner/inbox": [],
+	"/loginpage/components/owner/request": [],
 	"/loginpage/components/user": [],
 	"/loginpage/components/user/complaints": [],
 	"/loginpage/components/user/editprofile": [
