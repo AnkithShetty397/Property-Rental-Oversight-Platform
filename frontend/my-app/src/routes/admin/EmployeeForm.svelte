@@ -19,16 +19,27 @@
       let method = '';
 
       if (employeeDetails.operation === 'add') {
+<<<<<<< HEAD
         url = 'http://localhost:3000/api/admin/createemployee';
         method = 'POST';
       } else if (employeeDetails.operation === 'remove') {
         url = `http://localhost:3000/api/admin/removeemployee?user_id=${employeeDetails.employeeId}`;
         method = 'GET';
+=======
+        url = '/api/add-employee';
+        method = 'POST';
+      } else if (employeeDetails.operation === 'remove') {
+        url = `/api/remove-employee?employeeId=${employeeDetails.employeeId}`;
+        method = 'DELETE';
+>>>>>>> 208cf9cb48b98796c92551b7e9fb7e6fc9494e76
       }
 
       const response = await fetch(url, {
         method: method,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 208cf9cb48b98796c92551b7e9fb7e6fc9494e76
         headers: {
           'Content-Type': 'application/json',
         },
