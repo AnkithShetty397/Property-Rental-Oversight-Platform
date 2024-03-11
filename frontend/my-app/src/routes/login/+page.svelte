@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-    import { setUserId, setUserType } from "$lib/global"
+    import { setBlockNo, setHouseNumber, setUserId, setUserType } from "$lib/global"
     let email = '';
     let password = '';
     let type = ''; 

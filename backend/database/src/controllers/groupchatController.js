@@ -59,17 +59,14 @@ const addMessage = (req, res, next) => {
             sender: sender
         };
 
-        // Find or create the GroupChat document with the given block_no
         GroupChat.findOneAndUpdate(
             { block_no: block_no },
-            { $setOnInsert: { block_no: block_no, messages: [] } }, // Ensure creation if not found
-            { upsert: true, new: true } // Create if not found, return the new document
+            { $setOnInsert: { block_no: block_no, messages: [] } }, 
+            { upsert: true, new: true } 
         )
         .then(groupChat => {
-            // Append the new message_info to the messages array
             groupChat.messages.push(message_info);
 
-            // Save the updated GroupChat document
             return groupChat.save();
         })
         .then(updatedGroupChat => {

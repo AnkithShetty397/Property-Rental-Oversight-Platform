@@ -1,8 +1,9 @@
 /** @type {string} */
 export let loc = ""
-export let house_no = ""
+export let house_no = "" 
 export let user_id = ""
 export let block_no = "1"
+export let house_number = ""
 export let user_type = ""
 
 /**
@@ -17,9 +18,18 @@ export function setLoc(newValue) {
  * Set the value of myVariable
  * @param {string} newValue The new value to assign
  */
+export function setHouseNumber(newValue) {
+    house_number= newValue;
+}
+
+/**
+ * Set the value of myVariable
+ * @param {string} newValue The new value to assign
+ */
 export function setBlockNo(newValue) {
     block_no = newValue;
 }
+
 
 /**
  * Set the value of myVariable

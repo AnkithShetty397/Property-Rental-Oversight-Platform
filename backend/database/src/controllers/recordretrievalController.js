@@ -64,33 +64,56 @@ const calculateRentAmount = (startDate, endDate, rentPerMonth) => {
   const diffInMonths = (endDateObj.getFullYear() - startDateObj.getFullYear()) * 12 + (endDateObj.getMonth() - startDateObj.getMonth());
 
   const rentAmount = diffInMonths * rentPerMonth;
-  return rentAmount || 0; // Ensure rentAmount is not NaN or undefined
+  return rentAmount || 0; 
 };
-
 const addRentalRecord = (req, res, next) => {
-  const { start_date, end_date, tenant_id, house_no, rent_per_month } = req.body;
+  let { start_date, end_date, tenant_id, house_no, rent_per_month, user_id } = req.body;
   let payment_status = "no due";
 
-  rentalNumberGenerator((error, rentalNo) => {
+  const fetchTenantIdQuery = "SELECT tenant_id FROM tenant WHERE user_id = ?";
+
+  connection.query(fetchTenantIdQuery, [user_id], (error, results, fields) => {
     if (error) {
-      console.error("Error generating rental number:", error);
+      console.error("Error fetching tenant_id:", error);
       return res.status(500).json({ error: "Internal Server Error" });
     }
 
-    const rentAmount = calculateRentAmount(start_date, end_date, rent_per_month);
+    if (results.length === 0) {
+      return res.status(404).json({ error: "Tenant not found for the provided user_id" });
+    }
 
-    const query = "INSERT INTO rental_records (rental_no, start_date, end_date, tenant_id, house_no, rent_amount, payment_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    tenant_id = results[0].tenant_id;
 
-    connection.query(query, [rentalNo, start_date, end_date, tenant_id, house_no, rentAmount, payment_status], (error, results, fields) => {
+    rentalNumberGenerator((error, rentalNo) => {
       if (error) {
-        console.error("Error inserting data:", error);
+        console.error("Error generating rental number:", error);
         return res.status(500).json({ error: "Internal Server Error" });
       }
 
-      return res.status(200).json({ message: "Data inserted successfully" });
+      const rentAmount = calculateRentAmount(start_date, end_date, rent_per_month);
+
+      const insertQuery = "INSERT INTO rental_records (rental_no, start_date, end_date, tenant_id, house_no, rent_amount, payment_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+      connection.query(insertQuery, [rentalNo, start_date, end_date, tenant_id, house_no, rentAmount, payment_status], (error, results, fields) => {
+        if (error) {
+          console.error("Error inserting data:", error);
+          return res.status(500).json({ error: "Internal Server Error" });
+        }
+
+        const updateQuery = "UPDATE tenant SET house_no = ? WHERE user_id = ?";
+        connection.query(updateQuery, [house_no, user_id], (error, results, fields) => {
+          if (error) {
+            console.error("Error updating tenant data:", error);
+            return res.status(500).json({ error: "Internal Server Error" });
+          }
+          
+          return res.status(200).json({ message: "Data inserted and tenant record updated successfully" });
+        });
+      });
     });
   });
 };
+
 
 module.exports = {
   retrieveRentalRecords,

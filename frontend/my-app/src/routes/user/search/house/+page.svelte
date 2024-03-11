@@ -10,6 +10,7 @@
 
   function rentHouse() {
   const requestData = {
+    user_id : user_id,
     tenant_id: null,
     house_no: house_no,
     start_date: start_date,

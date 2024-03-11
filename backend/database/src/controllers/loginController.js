@@ -8,11 +8,10 @@ const connection = mysql.createConnection({
 });
 
 const login = (req, res, next) => {
-  const email = req.body.email;
-  const type = req.body.type;
-  const passwordFromBody = req.body.password;
-  const query =
-    "SELECT password, user_id FROM account_details WHERE email = ? and type=?";
+  const email = req.body.email
+  const type = req.body.type
+  const passwordFromBody = req.body.password
+  const query ="SELECT password, user_id FROM account_details WHERE email = ? and type=?"
 
   connection.query(query, [email, type], (error, results, fields) => {
     if (error) {
@@ -32,9 +31,9 @@ const login = (req, res, next) => {
     } else {
       return res.status(401).json({ error: "Incorrect password" });
     }
-  });
-};
+  })
+}
 
 module.exports = {
   login,
-};
+}

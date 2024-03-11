@@ -28,7 +28,7 @@
           }
           console.log('Message sent successfully')
           messageToSend=""
-          goto("/loginpage/components/user/groupchat/chat2")
+          goto("/user/groupchat/chat2")
       })
       .catch(error => {
           console.error('Error sending message:', error)
