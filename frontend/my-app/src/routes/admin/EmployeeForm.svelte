@@ -23,11 +23,6 @@
         method = 'POST';
       } else if (employeeDetails.operation === 'remove') {
         url = `http://localhost:3000/api/admin/removeemployee?user_id=${employeeDetails.employeeId}`;
-<<<<<<< HEAD
-        method = 'GET';
-=======
-        method = 'DELETE';
->>>>>>> f9aa212536f93227c77512c411492679a5bdbeea
       }
 
       const response = await fetch(url, {
