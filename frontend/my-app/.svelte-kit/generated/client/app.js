@@ -35,9 +35,7 @@ export const nodes = [
 	() => import('./nodes/31'),
 	() => import('./nodes/32'),
 	() => import('./nodes/33'),
-	() => import('./nodes/34'),
-	() => import('./nodes/35'),
-	() => import('./nodes/36')
+	() => import('./nodes/34')
 ];
 
 export const server_loads = [];
@@ -45,27 +43,25 @@ export const server_loads = [];
 export const dictionary = {
 		"/": [14],
 		"/admin": [15,[2]],
-		"/admin/alteremployees": [16,[2]],
-		"/admin/createowners": [17,[2]],
-		"/createacc": [18],
-		"/employee": [19],
-		"/loginpage": [21,[4]],
-		"/login": [20,[3]],
-		"/owner": [22],
-		"/owner/inbox": [23],
-		"/owner/request": [24],
-		"/user": [25,[5]],
-		"/user/complaints": [26,[5,6]],
-		"/user/editprofile": [27,[5,7]],
-		"/user/groupchat": [28,[5,8]],
-		"/user/groupchat/chat1": [29,[5,8]],
-		"/user/groupchat/chat2": [30,[5,8]],
-		"/user/home": [31,[5]],
-		"/user/notifications": [32,[5,9]],
-		"/user/profile": [33,[5,10]],
-		"/user/search/house": [34,[5,11]],
-		"/user/search/search1": [35,[5,12]],
-		"/user/search/search2": [36,[5,13]]
+		"/createacc": [16],
+		"/employee": [17],
+		"/loginpage": [19,[4]],
+		"/login": [18,[3]],
+		"/owner": [20],
+		"/owner/inbox": [21],
+		"/owner/request": [22],
+		"/user": [23,[5]],
+		"/user/complaints": [24,[5,6]],
+		"/user/editprofile": [25,[5,7]],
+		"/user/groupchat": [26,[5,8]],
+		"/user/groupchat/chat1": [27,[5,8]],
+		"/user/groupchat/chat2": [28,[5,8]],
+		"/user/home": [29,[5]],
+		"/user/notifications": [30,[5,9]],
+		"/user/profile": [31,[5,10]],
+		"/user/search/house": [32,[5,11]],
+		"/user/search/search1": [33,[5,12]],
+		"/user/search/search2": [34,[5,13]]
 	};
 
 export const hooks = {
