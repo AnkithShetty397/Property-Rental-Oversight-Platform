@@ -16,8 +16,10 @@ export const load = async () => {
 
         const houseInfo = houseData[0];
 
+        //fetch house reviews
         let reviewsResponse = await fetch(`http://localhost:3000/api/review/getHouseReview?house_no=${house_no}`);
         const reviewsData = await reviewsResponse.json();
+        console.log(reviewsData.response)
 
         return {
             house_no: houseInfo.house_no,
@@ -26,7 +28,7 @@ export const load = async () => {
             block_name: houseInfo.block_name,
             block_city: houseInfo.city, 
             rent: houseInfo.rent,
-            reviews: reviewsData 
+            reviews: reviewsData.response
         };
     } catch (error) {
         return {

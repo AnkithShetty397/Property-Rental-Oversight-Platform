@@ -9,7 +9,6 @@ const connection = mysql.createConnection({
 });
 
 const searchHouse = (req, res, next) => {
-  console.log(req.body);
   const city = req.query.city;
 
   const query =
@@ -33,7 +32,7 @@ const searchHouse = (req, res, next) => {
 };
 
 const getHouseDetails = (req, res, next) => {
-  const house_no = req.body.house_no;
+  const house_no = req.query.house_no;
 
   const query = "SELECT h.house_no, h.house_type, h.house_floor, h.rent, b.city, b.block_name FROM house h JOIN block b ON h.block_no = b.block_no WHERE h.house_no = ?";
   

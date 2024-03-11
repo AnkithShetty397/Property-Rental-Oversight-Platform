@@ -116,7 +116,7 @@
               <div class="rating">
                 {#each Array(review.rating) as _, i}
                   {#if i < 5}
-                    <span class="{i < review.rating ? 'star filled' : 'star'}">★</span>
+                    <span class="{i < review.rating ? 'star filled' : 'star' }" style="color: gold;">★</span>
                   {/if}
                 {/each}
               </div>

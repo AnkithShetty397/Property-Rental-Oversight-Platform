@@ -6,7 +6,7 @@
 
   async function submitHouse() {
     try {
-      const response = await fetch('/api/submit-house', {
+      const response = await fetch('http://localhost:3000/api/addhouseowner', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

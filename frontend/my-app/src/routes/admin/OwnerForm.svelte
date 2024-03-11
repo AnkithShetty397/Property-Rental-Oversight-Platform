@@ -11,7 +11,7 @@
 
   async function createOwner() {
     try {
-      const response = await fetch('/api/create-owner', {
+      const response = await fetch('http://localhost:3000/api/createowner', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

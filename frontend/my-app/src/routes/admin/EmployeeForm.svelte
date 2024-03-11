@@ -10,8 +10,8 @@
   };
 
   async function addRemoveEmployee() {
-    try {
-      const response = await fetch('/api/add-remove-employee', {
+    try {                                                                         //use get req to remove employee
+      const response = await fetch('http://localhost:3000/api/createemployee', { //url for removing emp: http://localhost:3000/api/removeemployee
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
