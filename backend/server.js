@@ -6,18 +6,18 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 // importing routes
-const reviewRoute       = require("./database/src/routes/reviewRoute");
-const houseRoute        = require("./database/src/routes/houseRoute");
-const searchRoute       = require("./database/src/routes/searchRoute");
-const profileRoute      = require("./database/src/routes/profileRoute");
-const userdetailsRoute  = require("./database/src/routes/userdetailsRoute");
-const groupchatRoute    = require("./database/src/routes/groupchatRoute");
-const loginRoute        = require("./database/src/routes/loginRoute");
+const reviewRoute = require("./database/src/routes/reviewRoute");
+const houseRoute = require("./database/src/routes/houseRoute");
+const searchRoute = require("./database/src/routes/searchRoute");
+const profileRoute = require("./database/src/routes/profileRoute");
+const userdetailsRoute = require("./database/src/routes/userdetailsRoute");
+const groupchatRoute = require("./database/src/routes/groupchatRoute");
+const loginRoute = require("./database/src/routes/loginRoute");
 const createaccountRoute = require("./database/src/routes/createaccountRoute");
 const recordretrievalRoute = require("./database/src/routes/recordretrievalRoute");
-const complaintRoute     = require("./database/src/routes/complaintRoute");
-const notificationRoute  = require("./database/src/routes/notificationRoute");
-const adminRoute         = require("./database/src/routes/adminRoute");
+const complaintRoute = require("./database/src/routes/complaintRoute");
+const notificationRoute = require("./database/src/routes/notificationRoute");
+const adminRoute = require("./database/src/routes/adminRoute");
 
 // connecting nodejs to mysql
 const mysqldb = mysql.createConnection({
@@ -33,12 +33,11 @@ mysqldb.connect(function (err) {
 });
 
 // connecting nodejs application to mongodb database using mongoose
-mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
-/*mongoose.connect(
+// mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
+mongoose.connect(
   "mongodb+srv://rohithreddyrr4:Crack%4064@cluster0.sz36yag.mongodb.net/",
   {}
 ); // default port //nosqldb is the name of mongodb
-*/
 const db = mongoose.connection;
 
 // logging
@@ -75,5 +74,5 @@ app.use("/api", loginRoute);
 app.use("/api", createaccountRoute);
 app.use("/api/employee", recordretrievalRoute);
 app.use("/api/complaints", complaintRoute);
-app.use("/api",notificationRoute);
-app.use("/api/admin",adminRoute);
+app.use("/api", notificationRoute);
+app.use("/api/admin", adminRoute);
