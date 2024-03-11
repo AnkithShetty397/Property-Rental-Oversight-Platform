@@ -1,8 +1,6 @@
 {
 	"/": [],
 	"/admin": [],
-	"/admin/alteremployees": [],
-	"/admin/createowners": [],
 	"/createacc": [],
 	"/employee": [],
 	"/loginpage": [],

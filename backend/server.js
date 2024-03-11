@@ -31,8 +31,11 @@ mysqldb.connect(function (err) {
 });
 
 // connecting nodejs application to mongodb database using mongoose
-mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
-//mongoose.connect("mongodb+srv://rohithreddyrr4:@cluster0.sz36yag.mongodb.net/",{}); // default port //nosqldb is the name of mongodb
+// mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
+mongoose.connect(
+  "mongodb+srv://rohithreddyrr4:Crack%4064@cluster0.sz36yag.mongodb.net/",
+  {}
+); // default port //nosqldb is the name of mongodb
 const db = mongoose.connection;
 
 // logging
