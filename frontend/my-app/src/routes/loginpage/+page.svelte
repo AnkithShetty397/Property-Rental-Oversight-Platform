@@ -2,11 +2,11 @@
     import { goto } from "$app/navigation";
     
     function goToLogin() {
-        goto("/loginpage/login");
+        goto("/login");
     }
     
     function goToCreateAccount() {
-        goto("/loginpage/createacc");
+        goto("/createacc");
     }
 </script>
 

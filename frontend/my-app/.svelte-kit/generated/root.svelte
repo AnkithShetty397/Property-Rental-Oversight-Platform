@@ -15,9 +15,6 @@
 	export let data_1 = null;
 	export let data_2 = null;
 	export let data_3 = null;
-	export let data_4 = null;
-	export let data_5 = null;
-	export let data_6 = null;
 
 	if (!browser) {
 		setContext('__svelte__', stores);
@@ -51,25 +48,7 @@
 			<svelte:component this={constructors[1]} bind:this={components[1]} data={data_1}>
 				{#if constructors[3]}
 					<svelte:component this={constructors[2]} bind:this={components[2]} data={data_2}>
-						{#if constructors[4]}
-							<svelte:component this={constructors[3]} bind:this={components[3]} data={data_3}>
-								{#if constructors[5]}
-									<svelte:component this={constructors[4]} bind:this={components[4]} data={data_4}>
-										{#if constructors[6]}
-											<svelte:component this={constructors[5]} bind:this={components[5]} data={data_5}>
-												<svelte:component this={constructors[6]} bind:this={components[6]} data={data_6} {form} />
-											</svelte:component>
-										{:else}
-											<svelte:component this={constructors[5]} bind:this={components[5]} data={data_5} {form} />
-										{/if}
-									</svelte:component>
-								{:else}
-									<svelte:component this={constructors[4]} bind:this={components[4]} data={data_4} {form} />
-								{/if}
-							</svelte:component>
-						{:else}
-							<svelte:component this={constructors[3]} bind:this={components[3]} data={data_3} {form} />
-						{/if}
+						<svelte:component this={constructors[3]} bind:this={components[3]} data={data_3} {form} />
 					</svelte:component>
 				{:else}
 					<svelte:component this={constructors[2]} bind:this={components[2]} data={data_2} {form} />

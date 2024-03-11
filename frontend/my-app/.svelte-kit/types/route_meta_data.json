@@ -1,42 +1,41 @@
 {
 	"/": [],
+	"/admin": [],
+	"/admin/alteremployees": [],
+	"/admin/createowners": [],
+	"/createacc": [],
+	"/employee": [],
 	"/loginpage": [],
-	"/loginpage/components": [],
-	"/loginpage/components/admin": [],
-	"/loginpage/components/admin/alteremployees": [],
-	"/loginpage/components/admin/createowners": [],
-	"/loginpage/components/employee": [],
-	"/loginpage/components/owner": [],
-	"/loginpage/components/owner/inbox": [],
-	"/loginpage/components/owner/request": [],
-	"/loginpage/components/user": [],
-	"/loginpage/components/user/complaints": [],
-	"/loginpage/components/user/editprofile": [
-		"src/routes/loginpage/components/user/editprofile/+page.js"
+	"/login": [],
+	"/owner": [],
+	"/owner/inbox": [],
+	"/owner/request": [],
+	"/user": [],
+	"/user/complaints": [],
+	"/user/editprofile": [
+		"src/routes/user/editprofile/+page.js"
 	],
-	"/loginpage/components/user/groupchat/chat1": [
-		"src/routes/loginpage/components/user/groupchat/chat1/+page.js"
+	"/user/groupchat": [],
+	"/user/groupchat/chat1": [
+		"src/routes/user/groupchat/chat1/+page.js"
 	],
-	"/loginpage/components/user/groupchat/chat2": [
-		"src/routes/loginpage/components/user/groupchat/chat2/+page.js"
+	"/user/groupchat/chat2": [
+		"src/routes/user/groupchat/chat2/+page.js"
 	],
-	"/loginpage/components/user/home": [],
-	"/loginpage/components/user/house": [
-		"src/routes/loginpage/components/user/house/+page.js"
+	"/user/home": [],
+	"/user/notifications": [
+		"src/routes/user/notifications/+page.js"
 	],
-	"/loginpage/components/user/notifications": [
-		"src/routes/loginpage/components/user/notifications/+page.js"
+	"/user/profile": [
+		"src/routes/user/profile/+page.js"
 	],
-	"/loginpage/components/user/profile1": [
-		"src/routes/loginpage/components/user/profile1/+page.js"
+	"/user/search/house": [
+		"src/routes/user/search/house/+page.js"
 	],
-	"/loginpage/components/user/search": [],
-	"/loginpage/components/user/search/search1": [
-		"src/routes/loginpage/components/user/search/search1/+page.js"
+	"/user/search/search1": [
+		"src/routes/user/search/search1/+page.js"
 	],
-	"/loginpage/components/user/search/search2": [
-		"src/routes/loginpage/components/user/search/search2/+page.js"
-	],
-	"/loginpage/createacc": [],
-	"/loginpage/login": []
+	"/user/search/search2": [
+		"src/routes/user/search/search2/+page.js"
+	]
 }
