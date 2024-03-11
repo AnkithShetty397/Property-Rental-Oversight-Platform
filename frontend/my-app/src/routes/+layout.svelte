@@ -6,7 +6,7 @@
         <slot/> 
     </body>  
     <footer>
-        <p>&copy; 2024 My Static Webpage. All rights reserved.</p>
+        <p>&copy; 2024 My Dynamic Webpage. All rights reserved.</p>
     </footer>
 </body>
 
@@ -16,6 +16,7 @@
         margin: 0;
         padding: 0;
         background-color: #f0f0f0;
+        /* background-image: url('/Navyom-Living-dining.jpg')*/
         /*background-image: url(http://localhost:3000/api/profile/getProfilePicture?user_id=0000000001);*/
     }
     header {

@@ -11,10 +11,10 @@ type OutputDataShape<T> = MaybeWithVoid<Omit<App.PageData, RequiredKeys<T>> & Pa
 type EnsureDefined<T> = T extends null | undefined ? {} : T;
 type OptionalUnion<U extends Record<string, any>, A extends keyof U = U extends U ? keyof U : never> = U extends unknown ? { [P in Exclude<A, keyof U>]?: never } & U : never;
 export type Snapshot<T = any> = Kit.Snapshot<T>;
-type PageParentData = Omit<Omit<Omit<EnsureDefined<import('../../../../$types.js').LayoutData>, keyof import('../../../$types.js').LayoutData> & EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../$types.js').LayoutData> & EnsureDefined<import('../$types.js').LayoutData>, keyof LayoutData> & EnsureDefined<LayoutData>;
+type PageParentData = Omit<Omit<Omit<Omit<EnsureDefined<import('../../../../$types.js').LayoutData>, keyof import('../../../$types.js').LayoutData> & EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../../$types.js').LayoutData> & EnsureDefined<import('../../$types.js').LayoutData>, keyof import('../$types.js').LayoutData> & EnsureDefined<import('../$types.js').LayoutData>, keyof LayoutData> & EnsureDefined<LayoutData>;
 type LayoutRouteId = RouteId | "/loginpage/components/user/editprofile"
 type LayoutParams = RouteParams & {  }
-type LayoutParentData = Omit<Omit<EnsureDefined<import('../../../../$types.js').LayoutData>, keyof import('../../../$types.js').LayoutData> & EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../$types.js').LayoutData> & EnsureDefined<import('../$types.js').LayoutData>;
+type LayoutParentData = Omit<Omit<Omit<EnsureDefined<import('../../../../$types.js').LayoutData>, keyof import('../../../$types.js').LayoutData> & EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../../$types.js').LayoutData> & EnsureDefined<import('../../$types.js').LayoutData>, keyof import('../$types.js').LayoutData> & EnsureDefined<import('../$types.js').LayoutData>;
 
 export type PageServerData = null;
 export type PageLoad<OutputData extends OutputDataShape<PageParentData> = OutputDataShape<PageParentData>> = Kit.Load<RouteParams, PageServerData, PageParentData, OutputData, RouteId>;

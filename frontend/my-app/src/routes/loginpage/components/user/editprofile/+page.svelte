@@ -51,7 +51,7 @@
             }
             alert('Profile updated successfully')
             console.log('Profile updated successfully');
-            goto("/loginpage/components/user/profile")
+            goto("/loginpage/components/user/profile1")
         } catch (error) {
             console.error('Error updating profile:', error);
         }

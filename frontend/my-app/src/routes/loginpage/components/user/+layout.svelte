@@ -14,7 +14,7 @@
     <div class="container"> 
         <div class="sideblock">
             <ul>
-                <li><a href="/loginpage/components/user/profile" class="button-link">Profile</a></li>
+                <li><a href="/loginpage/components/user/profile1" class="button-link">Profile</a></li>
                 <li><a href="/loginpage/components/user/home/" class="button-link">Home</a></li>
                 <li><a href="/loginpage/components/user/notifications" class="button-link">Notifications</a></li>
                 <li><a href="/loginpage/components/user/groupchat/chat1" class="button-link">Chatbox</a></li>

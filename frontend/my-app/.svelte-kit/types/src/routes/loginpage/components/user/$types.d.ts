@@ -11,10 +11,10 @@ type OutputDataShape<T> = MaybeWithVoid<Omit<App.PageData, RequiredKeys<T>> & Pa
 type EnsureDefined<T> = T extends null | undefined ? {} : T;
 type OptionalUnion<U extends Record<string, any>, A extends keyof U = U extends U ? keyof U : never> = U extends unknown ? { [P in Exclude<A, keyof U>]?: never } & U : never;
 export type Snapshot<T = any> = Kit.Snapshot<T>;
-type PageParentData = Omit<Omit<EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../../$types.js').LayoutData> & EnsureDefined<import('../../$types.js').LayoutData>, keyof LayoutData> & EnsureDefined<LayoutData>;
-type LayoutRouteId = RouteId | "/loginpage/components/user" | "/loginpage/components/user/complaints" | "/loginpage/components/user/editprofile" | "/loginpage/components/user/groupchat/chat1" | "/loginpage/components/user/groupchat/chat2" | "/loginpage/components/user/home" | "/loginpage/components/user/house" | "/loginpage/components/user/notifications" | "/loginpage/components/user/profile" | "/loginpage/components/user/search/search1" | "/loginpage/components/user/search/search2"
+type PageParentData = Omit<Omit<Omit<EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../../$types.js').LayoutData> & EnsureDefined<import('../../$types.js').LayoutData>, keyof import('../$types.js').LayoutData> & EnsureDefined<import('../$types.js').LayoutData>, keyof LayoutData> & EnsureDefined<LayoutData>;
+type LayoutRouteId = RouteId | "/loginpage/components/user" | "/loginpage/components/user/complaints" | "/loginpage/components/user/editprofile" | "/loginpage/components/user/groupchat/chat1" | "/loginpage/components/user/groupchat/chat2" | "/loginpage/components/user/home" | "/loginpage/components/user/house" | "/loginpage/components/user/notifications" | "/loginpage/components/user/profile1" | "/loginpage/components/user/search/search1" | "/loginpage/components/user/search/search2"
 type LayoutParams = RouteParams & {  }
-type LayoutParentData = Omit<EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../../$types.js').LayoutData> & EnsureDefined<import('../../$types.js').LayoutData>;
+type LayoutParentData = Omit<Omit<EnsureDefined<import('../../../$types.js').LayoutData>, keyof import('../../$types.js').LayoutData> & EnsureDefined<import('../../$types.js').LayoutData>, keyof import('../$types.js').LayoutData> & EnsureDefined<import('../$types.js').LayoutData>;
 
 export type PageServerData = null;
 export type PageData = Expand<PageParentData>;

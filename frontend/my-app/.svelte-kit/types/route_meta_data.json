@@ -24,10 +24,13 @@
 	"/loginpage/components/user/house": [
 		"src/routes/loginpage/components/user/house/+page.js"
 	],
-	"/loginpage/components/user/notifications": [],
-	"/loginpage/components/user/profile": [
-		"src/routes/loginpage/components/user/profile/+page.js"
+	"/loginpage/components/user/notifications": [
+		"src/routes/loginpage/components/user/notifications/+page.js"
 	],
+	"/loginpage/components/user/profile1": [
+		"src/routes/loginpage/components/user/profile1/+page.js"
+	],
+	"/loginpage/components/user/search": [],
 	"/loginpage/components/user/search/search1": [
 		"src/routes/loginpage/components/user/search/search1/+page.js"
 	],
