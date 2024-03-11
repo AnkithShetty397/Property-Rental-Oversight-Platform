@@ -16,6 +16,7 @@ const loginRoute = require("./database/src/routes/loginRoute");
 const createaccountRoute = require("./database/src/routes/createaccountRoute");
 const recordretrievalRoute = require("./database/src/routes/recordretrievalRoute");
 const complaintRoute = require("./database/src/routes/complaintRoute");
+const notificationRoute = require("./database/src/routes/notificationRoute");
 
 // connecting nodejs to mysql
 const mysqldb = mysql.createConnection({
@@ -69,3 +70,4 @@ app.use("/api", loginRoute);
 app.use("/api", createaccountRoute);
 app.use("/api/employee", recordretrievalRoute);
 app.use("/api/complaints", complaintRoute);
+app.use("/api",notificationRoute);

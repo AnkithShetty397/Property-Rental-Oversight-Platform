@@ -9,7 +9,7 @@
         {#if data.notification && data.notification.length > 0}
         {#each data.notification as message}
             <div class="message-block">
-            <div class="user-name">{message.from}</div>
+            <div class="user-name">Admin</div>
             <div class="message">
                 <p class="message-content">{message.content}</p>
             </div>
@@ -26,6 +26,7 @@
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
+  width: 1150px;
 }
 
 .review-header {
@@ -35,6 +36,7 @@
 .scrollable-notification {
   max-height: 300px;
   overflow-y: auto;
+  width: 1150px;
 }
 
 .message-block {
@@ -43,6 +45,7 @@
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 1100px;
 }
 
 .user-name {

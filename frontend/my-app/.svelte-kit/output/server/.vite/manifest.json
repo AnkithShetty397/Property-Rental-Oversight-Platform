@@ -69,16 +69,23 @@
       "_app/immutable/assets/_page.mqQ-l0-M.css"
     ]
   },
+  "src/routes/admin/+layout.svelte": {
+    "file": "entries/pages/admin/_layout.svelte.js",
+    "src": "src/routes/admin/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js"
+    ]
+  },
   "src/routes/admin/+page.svelte": {
     "file": "entries/pages/admin/_page.svelte.js",
     "src": "src/routes/admin/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_ssr.js",
-      "src/routes/admin/alteremployees/+page.svelte"
+      "_ssr.js"
     ],
     "css": [
-      "_app/immutable/assets/_page.DeUdYAJ8.css"
+      "_app/immutable/assets/_page.CzTv0mpo.css"
     ]
   },
   "src/routes/admin/alteremployees/+page.svelte": {
@@ -325,6 +332,14 @@
     ],
     "css": [
       "_app/immutable/assets/_page.DwNNBPnP.css"
+    ]
+  },
+  "src/routes/user/notifications/+layout.svelte": {
+    "file": "entries/pages/user/notifications/_layout.svelte.js",
+    "src": "src/routes/user/notifications/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_ssr.js"
     ]
   },
   "src/routes/user/notifications/+page.js": {

@@ -2,22 +2,24 @@ import { user_id } from '$lib/global.js'
 
 export const load = async () => {
     try {
-        let response = await fetch(`http://localhost:3000/api/notifications?user_id=${user_id}`);
-        const notifications = await response.json();
-
-        if (notifications.length === 0) {
+        let response = await fetch(`http://localhost:3000/api/notifications?user_id=${user_id}`)
+        const notifications = await response.json()
+        console.log(notifications)
+        if (notifications.messages.length === 0) {
             return {
                 notification: []
             };
         }
+        console.log(notifications.messages)
+        const messages = notifications.messages
 
-        const houseInfo = notifications[0];
         return {
-            notification: notifications
+            notification: messages
         }
     } catch (error) {
+        console.error("Error loading notifications:", error);
         return {
             notification: []
         }
     }
-};
+}
