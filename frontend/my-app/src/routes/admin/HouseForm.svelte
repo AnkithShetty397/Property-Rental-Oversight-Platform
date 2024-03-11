@@ -1,12 +1,13 @@
 <script>
   let houseDetails = {
-    houseNumber: '',
+    house_no: '',
+    email: '',
     // Add other necessary details for houses
   };
 
   async function submitHouse() {
     try {
-      const response = await fetch('http://localhost:3000/api/addhouseowner', {
+      const response = await fetch('http://localhost:3000/api/admin/addhouseowner', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,13 +32,17 @@
   <h1>Enter House Details</h1>
   <form on:submit|preventDefault={submitHouse}>
     <label for="houseNumber">House Number:</label>
-    <input type="text" id="houseNumber" bind:value={houseDetails.houseNumber} required />
+    <input type="text" id="houseNumber" bind:value={houseDetails.house_no} required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" bind:value={houseDetails.email} required />
 
     <!-- Add other form fields for necessary details for houses -->
 
     <button type="submit">Submit House</button>
   </form>
 </div>
+
 
 <style>
   .form-container {

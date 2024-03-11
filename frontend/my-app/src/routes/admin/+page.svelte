@@ -11,13 +11,13 @@
 </script>
 
 {#if activeForm !== 0}
-  <button on:click={goBack}>Back</button>
+  <button class="back-button" on:click={goBack}>Back</button>
 {/if}
 
 {#if activeForm === 0}
   <div class="button-container">
-    <button on:click={() => activeForm = 3}>Enter House Details</button>
     <button on:click={() => activeForm = 1}>Create Owners</button>
+    <button on:click={() => activeForm = 3}>Add House owner</button>
     <button on:click={() => activeForm = 2}>Add/Remove Employees</button>
   </div>
 {/if}
@@ -71,5 +71,20 @@ transition: background-color 0.3s ease;
 button:hover {
 background-color: #1d2f4a;
 }
+
+.back-button {
+    background-color: #ccc;
+    color: #333;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-button:hover {
+    background-color: #ddd;
+  }
 
 </style>
