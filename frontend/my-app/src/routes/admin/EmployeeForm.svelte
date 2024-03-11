@@ -1,14 +1,14 @@
-<script>
+<script lang="ts">
   let employeeDetails = {
     employeeId: '',
     operation: 'add', // Default operation is 'add'
-    name: '',
-    age: '',
+    employee_name: '',
+    employee_age: '',
     gender: '',
-    salary: '',
-    hireDate: '',
-    dob: '',
-    phoneNo: '',
+    employee_salary: '',
+    hire_date: '',
+    DoB: '',
+    phone_no: '',
     email: '',
     password: '',
   };
@@ -17,13 +17,17 @@
     try {
       let url = '';
       let method = '';
-
+      console.log(employeeDetails);
       if (employeeDetails.operation === 'add') {
         url = 'http://localhost:3000/api/admin/createemployee';
         method = 'POST';
       } else if (employeeDetails.operation === 'remove') {
         url = `http://localhost:3000/api/admin/removeemployee?user_id=${employeeDetails.employeeId}`;
+<<<<<<< HEAD
         method = 'GET';
+=======
+        method = 'DELETE';
+>>>>>>> f9aa212536f93227c77512c411492679a5bdbeea
       }
 
       const response = await fetch(url, {
@@ -50,8 +54,11 @@
 <div class="form-container">
   <h1>Add/Remove Employees</h1>
   <form on:submit|preventDefault={performEmployeeOperation}>
-    <label for="employeeId">Employee ID:</label>
-    <input type="text" id="employeeId" bind:value={employeeDetails.employeeId} required />
+    {#if employeeDetails.operation === 'remove'}
+      <!-- Render "Employee ID" input field only for remove operation -->
+      <label for="employeeId">Employee ID:</label>
+      <input type="text" id="employeeId" bind:value={employeeDetails.employeeId} required />
+    {/if}
 
     <label for="operation">Select Operation:</label>
     <select id="operation" bind:value={employeeDetails.operation} required>
@@ -62,42 +69,40 @@
     {#if employeeDetails.operation === 'add'}
       <!-- Additional fields for adding an employee -->
       <label for="name">Name:</label>
-      <input type="text" id="name" bind:value={employeeDetails.name} required />
+      <input type="text" id="name" bind:value={employeeDetails.employee_name} required />
 
       <label for="age">Age:</label>
-      <input type="text" id="age" bind:value={employeeDetails.age} required />
+      <input type="text" id="age" bind:value={employeeDetails.employee_age} required />
 
       <label for="gender">Gender:</label>
-    <select id="gender" bind:value={employeeDetails.gender} required>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-      <!-- Add other gender options if needed -->
-    </select>
+      <select id="gender" bind:value={employeeDetails.gender} required>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <!-- Add other gender options if needed -->
+      </select>
 
-    <label for="salary">Salary:</label>
-    <input type="number" id="salary" bind:value={employeeDetails.salary} required />
+      <label for="salary">Salary:</label>
+      <input type="number" id="salary" bind:value={employeeDetails.employee_salary} required />
 
-    <label for="hireDate">Hire Date:</label>
-    <input type="text" id="hireDate" bind:value={employeeDetails.hireDate} required />
+      <label for="hireDate">Hire Date:</label>
+      <input type="text" id="hireDate" bind:value={employeeDetails.hire_date} required />
 
-    <label for="dob">Date of Birth:</label>
-    <input type="text" id="dob" bind:value={employeeDetails.dob} required />
+      <label for="dob">Date of Birth:</label>
+      <input type="text" id="dob" bind:value={employeeDetails.DoB} required />
 
-    <label for="phoneNo">Phone Number:</label>
-    <input type="text" id="phoneNo" bind:value={employeeDetails.phoneNo} required />
+      <label for="phoneNo">Phone Number:</label>
+      <input type="text" id="phoneNo" bind:value={employeeDetails.phone_no} required />
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" bind:value={employeeDetails.email} required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" bind:value={employeeDetails.email} required />
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" bind:value={employeeDetails.password} required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" bind:value={employeeDetails.password} required />
 
       <!-- Add other fields as needed -->
     {/if}
 
     <!-- Common fields for both add and remove operations -->
-   
-
     <button type="submit">Submit</button>
   </form>
 </div>
