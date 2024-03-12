@@ -26,7 +26,7 @@
   background-color: #f0f0f0;
   padding: 20px;
   border-radius: 8px;
-  width: 1150px;
+  width: 1100px;
 }
 
 .review-header {

@@ -1,12 +1,8 @@
-<script>
-    let name="User";
-</script>
-
 <body>
     <div class="content">
         <h2>About Us</h2>
-        <p>This is a simple static webpage created with HTML and CSS by {name}.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget mauris a massa mollis tristique.</p>
+        <p>This is a simple dynamic webpage created with Svelte by us.</p>
+        <p>We have used nodejs for the backend with mysql and mongodb databases</p>
     </div>
 </body>
 

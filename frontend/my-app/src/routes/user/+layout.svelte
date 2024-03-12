@@ -8,6 +8,11 @@
         setHouse_no("")
         goto('/')
     }
+
+    function handleClick(event) {
+    event.preventDefault();
+    window.location.href = "https://app.droxy.ai/guest-chatbot/65efddb071834a577704fbf8"; // Navigate to the desired URL
+  }
 </script>
 
 <body>
@@ -20,7 +25,9 @@
                 <li><a href="/user/groupchat/chat1" class="button-link">Chatbox</a></li>
                 <li><a href="/user/complaints" class="button-link">Complaints</a></li>
                 <li><a href="/user" class="button-link">About Us</a></li>
+                <li><a href="https://app.droxy.ai/guest-chatbot/65efddb071834a577704fbf8" class="button-link" target="_blank">Help</a></li>
                 <li><button on:click={logout} class="button">logout</button></li>
+                
             </ul>
             
         </div>
@@ -89,7 +96,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
       width: 140px;
-      margin: 200px auto auto auto;
+      margin: 165px auto auto auto;
     }
 
     .button:hover {

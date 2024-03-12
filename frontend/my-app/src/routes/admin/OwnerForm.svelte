@@ -37,34 +37,36 @@
   }
 </script>
 
-<div class="form-container" class:hidden={!$showForm}>
-  <h1>Create Owners</h1>
-  <form on:submit|preventDefault={createOwner}>
-    <label for="name">Name:</label>
-    <input type="text" id="name" bind:value={ownerDetails.owner_name} required />
+<div style="height: 490px; overflow: auto; border-radius: 10px">
+  <div class="form-container" class:hidden={!$showForm}>
+    <h1>Create Owners</h1>
+    <form on:submit|preventDefault={createOwner}>
+      <label for="name">Name:</label>
+      <input type="text" id="name" bind:value={ownerDetails.owner_name} required />
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" bind:value={ownerDetails.email} required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" bind:value={ownerDetails.email} required />
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" bind:value={ownerDetails.password} required />
-    
-        <label for="owner_age">Owner Age:</label>
-        <input type="text" id="owner_age" bind:value={ownerDetails.owner_age} required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" bind:value={ownerDetails.password} required />
+      
+      <label for="owner_age">Owner Age:</label>
+      <input type="text" id="owner_age" bind:value={ownerDetails.owner_age} required />
 
-    <label for="adhar_id">Aadhar ID:</label>
-    <input type="text" id="adhar_id" bind:value={ownerDetails.adhar_id} required />
+      <label for="adhar_id">Aadhar ID:</label>
+      <input type="text" id="adhar_id" bind:value={ownerDetails.adhar_id} required />
 
-    <label for="phone_no">Phone Number:</label>
-    <input type="text" id="phone_no" bind:value={ownerDetails.phone_no} required />
+      <label for="phone_no">Phone Number:</label>
+      <input type="text" id="phone_no" bind:value={ownerDetails.phone_no} required />
 
-    <label for="location">Location:</label>
-    <input type="text" id="location" bind:value={ownerDetails.location} required />
+      <label for="location">Location:</label>
+      <input type="text" id="location" bind:value={ownerDetails.location} required />
 
-    <!-- Add other form fields for necessary details -->
+      <!-- Add other form fields for necessary details -->
 
-    <button class="temp" type="submit">Create Owner</button>
-  </form>
+      <button class="temp" type="submit">Create Owner</button>
+    </form>
+  </div>
 </div>
 
 <style>
@@ -72,7 +74,7 @@
     margin-bottom: 25px;
   }
   .form-container {
-  max-width: 400px;
+  max-width: 800px;
   width: 100%;
   background-color: #f8f8f8;
   border: 1px solid #ccc;
@@ -82,7 +84,7 @@
   box-sizing: border-box;
   text-align: center;
   margin: 0 auto;
-  transition: transform 0.3s ease; /* Add a transition effect */
+  transition: transform 0.3s ease; 
   }
   
   .form-container button {

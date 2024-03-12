@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-    import { setBlockNo, setHouseNumber, setUserId, setUserType } from "$lib/global"
+    import { setUserId, setUserType } from "$lib/global"
     let email = '';
     let password = '';
     let type = ''; 
@@ -27,9 +27,9 @@
                 if(type==="user"){
                     goto('/user')
                 }else if(type==="employee"){
-                    goto('/employee') 
+                    goto('/employee/complaints') 
                 }else if(type==="owner"){
-                    goto('/owner')
+                    goto('/owner/inbox')
                 }else if(type==="admin"){
                     goto('/admin')
                 }

@@ -1,12 +1,14 @@
-<!-- SearchBar.svelte -->
-
 <script>
-  let searchTerm = '';
-  let type = "";
+  import { goto } from "$app/navigation";
+  import {setData,setType} from "$lib/global"
+
+  let data1=""
+  let type1=""
 
   function handleSearch() {
-    console.log('Search term:', searchTerm);
-    //fetch data
+    setData(data1)
+    setType(type1)
+    goto('/employee/rental_records/result1');
   }
 </script>
 
@@ -56,12 +58,15 @@
 </style>
 
 <div class="search-bar">
-  <input type="text" bind:value={searchTerm} on:input={handleSearch} placeholder="Search..." />
-  <select id="type" bind:value={type}>
-    <option value="user">All</option>
-    <option value="employee">tenant id</option>
-    <option value="owner">Payment status</option>
-    <option value="admin">Date</option>
+  <input type="text" bind:value={data1} placeholder="Search..." />
+  <select id="type" bind:value={type1}>
+    <option value="all">All</option>
+    <option value="tenant_id">tenant id</option>
+    <option value="payment_status">Payment status</option>
+    <option value="date">Date</option>
   </select>
   <button on:click={handleSearch}>Search</button>
 </div>
+<body>
+  <slot/>
+</body>

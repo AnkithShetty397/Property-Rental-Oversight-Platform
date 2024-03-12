@@ -5,8 +5,7 @@
 <body>
     <div class="content">
         <h2>Home</h2>
-        <p>This is a simple static webpage created with HTML and CSS.</p>
-        <p>description.</p>
+        <p>This is a simple dynamic webpage created with Svelte.</p>
     </div>
 </body>
 

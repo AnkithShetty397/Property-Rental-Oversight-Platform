@@ -8,8 +8,8 @@ const connection = mysql.createConnection({
 });
 
 const retrieveRentalRecords = (req, res, next) => {
-  const type = req.body.type;
-  const data = req.body.data;
+  const type = req.query.type;
+  const data = req.query.data;
   let query;
 
   switch (type) {

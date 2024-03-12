@@ -2,9 +2,27 @@
 export let loc = ""
 export let house_no = "" 
 export let user_id = ""
-export let block_no = "1"
+export let block_no = "5"
 export let house_number = ""
 export let user_type = ""
+export let data=""
+export let type = ""
+
+/**
+ * Set the value of myVariable
+ * @param {string} newValue The new value to assign
+ */
+export function setType(newValue) {
+    type= newValue;
+}
+
+/**
+ * Set the value of myVariable
+ * @param {string} newValue The new value to assign
+ */
+export function setData(newValue) {
+    data= newValue;
+}
 
 /**
  * Set the value of myVariable

@@ -1,7 +1,11 @@
 <script>
+    import { goto } from '$app/navigation';
     import { user_id } from '$lib/global.js'
     /** @type {import('./$types').PageData} */
     export let data;
+    function loadedit(){
+        goto('/user/editprofile')
+    }
 </script>
 
 <main>
@@ -16,7 +20,7 @@
                     <p>Aadhar Number: { data.info.adhar_no }</p>
                     <p>Phone Number: { data.info.phone_no }</p>
             </div>
-            <a href="/user/editprofile" class="button-link">Edit</a>
+            <button on:click={loadedit} class="button-link">Edit</button>
         </div>
     </body> 
     

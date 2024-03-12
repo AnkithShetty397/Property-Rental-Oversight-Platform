@@ -2,7 +2,6 @@
   let houseDetails = {
     house_no: '',
     email: '',
-    // Add other necessary details for houses
   };
 
   async function submitHouse() {
@@ -16,10 +15,8 @@
       });
 
       if (response.ok) {
-        // Handle success, e.g., show a success message or navigate to another page
         console.log('House submitted successfully');
       } else {
-        // Handle errors, e.g., show an error message
         console.error('Error submitting house');
       }
     } catch (error) {
@@ -37,8 +34,6 @@
     <label for="email">Email:</label>
     <input type="email" id="email" bind:value={houseDetails.email} required />
 
-    <!-- Add other form fields for necessary details for houses -->
-
     <button type="submit">Submit House</button>
   </form>
 </div>
@@ -46,7 +41,7 @@
 
 <style>
   .form-container {
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
     background-color: #f8f8f8;
     border: 1px solid #ccc;

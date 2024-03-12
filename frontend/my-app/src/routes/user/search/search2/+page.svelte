@@ -15,8 +15,11 @@
     }
   </script>
   
-  <main>
-    <div class=scrollable-container>
+<main>
+  <div class=scrollable-container>
+    {#if data.houses.length === 0}
+      <div>No houses found</div>
+    {:else}
       {#each data.houses as house}
         <div class="result">
             <div class="image-label">
@@ -24,16 +27,18 @@
               <span class="label"></span>
             </div>
             <div class="text-content">
-              <h3>Title: {house.house_no}</h3>
-              <p>Description goes here...{house.block_no}</p>
+              <h3>House number: {house.house_no}</h3>
+              <p>Block number: {house.block_no}</p>
+              <p>Description goes here...</p>
             </div>
-            <button class="open-button" on:click={() => handleButtonClick(house.house_no)} >Open</button>
+            <button class="open-button" on:click={() => handleButtonClick(house.house_no)}>Open</button>
         </div>
       {/each}
-    </div>
-  </main>
-  
-  <style>
+    {/if}
+  </div>
+</main>
+
+<style>
     .scrollable-container {
       max-height: 450px;
       overflow-y: auto;

@@ -24,20 +24,32 @@ function getUserName(user_id, callback){
       })
 }
 
-const getComplaints = (req,res,next)=>{
-    const block_no = req.query.block_no
-    Complaints.find({block_no : block_no})
-    .then(response=>{
-        res.json({
-            response
-        })
-    })
-    .catch(error=>{
-        res.json({
-            message: "Error occured while fetching messages."
-        })
-    })
-}
+const getComplaints = (req, res, next) => {
+    const user_id = req.query.user_id;
+
+    connection.query('SELECT block_no FROM house WHERE employee_id = ?', [user_id], (error, results, fields) => {
+        if (error) {
+            console.error("Error fetching block_no:", error);
+            return res.status(500).json({ error: "Internal server error" });
+        }
+
+        if (results.length === 0) {
+            return res.status(404).json({ message: "House not found for this user_id" });
+        }
+
+        const block_no = results[0].block_no;
+
+        Complaints.find({ block_no: block_no })
+            .then(response => {
+                res.json({
+                    response
+                });
+            })
+            .catch(error => {
+                res.status(500).json({ message: "Error occurred while fetching complaints." });
+            });
+    });
+};
 
 const addComplaint = (req, res, next) => {
     const block_no = req.body.block_no;

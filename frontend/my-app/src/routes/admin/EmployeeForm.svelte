@@ -34,10 +34,8 @@
       });
 
       if (response.ok) {
-        // Handle success, e.g., show a success message or update UI
         console.log(`Employee ${employeeDetails.operation} successful`);
       } else {
-        // Handle errors, e.g., show an error message
         console.error(`Error in employee ${employeeDetails.operation}`);
       }
     } catch (error) {
@@ -46,11 +44,11 @@
   }
 </script>
 
+<div style="height: 490px; overflow: auto; border-radius: 10px">
 <div class="form-container">
   <h1>Add/Remove Employees</h1>
   <form on:submit|preventDefault={performEmployeeOperation}>
     {#if employeeDetails.operation === 'remove'}
-      <!-- Render "Employee ID" input field only for remove operation -->
       <label for="employeeId">Employee ID:</label>
       <input type="text" id="employeeId" bind:value={employeeDetails.employeeId} required />
     {/if}
@@ -62,7 +60,6 @@
     </select>
 
     {#if employeeDetails.operation === 'add'}
-      <!-- Additional fields for adding an employee -->
       <label for="name">Name:</label>
       <input type="text" id="name" bind:value={employeeDetails.employee_name} required />
 
@@ -73,7 +70,6 @@
       <select id="gender" bind:value={employeeDetails.gender} required>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
-        <!-- Add other gender options if needed -->
       </select>
 
       <label for="salary">Salary:</label>
@@ -94,17 +90,19 @@
       <label for="password">Password:</label>
       <input type="password" id="password" bind:value={employeeDetails.password} required />
 
-      <!-- Add other fields as needed -->
     {/if}
 
-    <!-- Common fields for both add and remove operations -->
     <button type="submit">Submit</button>
   </form>
 </div>
+</div>
 
 <style>
+  select{
+    height: 35px
+  }
   .form-container {
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
     background-color: #f8f8f8;
     border: 1px solid #ccc;

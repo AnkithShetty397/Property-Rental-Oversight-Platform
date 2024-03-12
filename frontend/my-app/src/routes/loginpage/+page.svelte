@@ -42,6 +42,7 @@
         background-color: #007bff;
         color: #fff;
         transition: background-color 0.3s ease;
+        width: 300px
     }
 
     button:hover {

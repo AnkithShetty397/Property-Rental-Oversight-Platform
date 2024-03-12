@@ -3,11 +3,25 @@
 	"/admin": [],
 	"/createacc": [],
 	"/employee": [],
+	"/employee/complaints": [
+		"src/routes/employee/complaints/+page.js"
+	],
+	"/employee/rental_records": [],
+	"/employee/rental_records/result1": [
+		"src/routes/employee/rental_records/result1/+page.js"
+	],
+	"/employee/rental_records/result2": [
+		"src/routes/employee/rental_records/result2/+page.js"
+	],
 	"/loginpage": [],
 	"/login": [],
 	"/owner": [],
-	"/owner/inbox": [],
-	"/owner/request": [],
+	"/owner/inbox": [
+		"src/routes/owner/inbox/+page.js"
+	],
+	"/owner/request": [
+		"src/routes/owner/request/+page.js"
+	],
 	"/user": [],
 	"/user/complaints": [],
 	"/user/editprofile": [
