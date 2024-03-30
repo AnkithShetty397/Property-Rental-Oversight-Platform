@@ -58,8 +58,6 @@
     }
 </script>
 
-
-
 <main>
     <body>
         <div class="container">
