@@ -8,10 +8,16 @@ const connection = mysql.createConnection({
 });
 
 const login = (req, res, next) => {
-  const email = req.body.email
-  const type = req.body.type
-  const passwordFromBody = req.body.password
-  const query ="SELECT password, user_id FROM account_details WHERE email = ? and type=?"
+  const email = req.body.email;
+  const type = req.body.type;
+  const passwordFromBody = req.body.password;
+
+  let query; 
+  if(type === "user") {
+    query = "SELECT a.user_id, h.block_no, a.password FROM (tenant AS t JOIN account_details AS a ON t.user_id = a.user_id) JOIN house AS h ON t.house_no = h.house_no WHERE a.email = ? and a.type = ?";
+  } else {
+    query = "SELECT password, user_id FROM account_details WHERE email = ? and type = ?";
+  }
 
   connection.query(query, [email, type], (error, results, fields) => {
     if (error) {
@@ -22,17 +28,35 @@ const login = (req, res, next) => {
       return res.status(404).json({ error: "Account not found" });
     }
 
-    const passwordFromDB = results[0].password;
-    const user_id = results[0].user_id;
-    if (passwordFromDB === passwordFromBody) {
-      return res
-        .status(200)
-        .json({ message: "Login successful", user_id: user_id });
+    if (type === "user") {
+      const passwordFromDB = results[0].password;
+      const user_id = results[0].user_id;
+      const block_no = results[0].block_no;
+
+      if (passwordFromDB === passwordFromBody) {
+        return res.status(200).json({
+          message: "Login successful",
+          user_id: user_id,
+          block_no: block_no
+        });
+      } else {
+        return res.status(401).json({ error: "Incorrect password" });
+      }
     } else {
-      return res.status(401).json({ error: "Incorrect password" });
+      const passwordFromDB = results[0].password;
+      const user_id = results[0].user_id;
+
+      if (passwordFromDB === passwordFromBody) {
+        return res.status(200).json({
+          message: "Login successful",
+          user_id: user_id
+        });
+      } else {
+        return res.status(401).json({ error: "Incorrect password" });
+      }
     }
-  })
-}
+  });
+};
 
 module.exports = {
   login,

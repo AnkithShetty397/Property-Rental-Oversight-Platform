@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-    import { setUserId, setUserType } from "$lib/global"
+    import { setUserId, setUserType , setBlockNo} from "$lib/global"
     let email = '';
     let password = '';
     let type = ''; 
@@ -20,18 +20,25 @@
             });
 
             if (response.ok) {
-                const res = await response.json();
-                console.log(res)
-                setUserId(res.user_id)
-                setUserType(type)
-                if(type==="user"){
-                    goto('/user')
-                }else if(type==="employee"){
-                    goto('/employee/complaints') 
-                }else if(type==="owner"){
-                    goto('/owner/inbox')
-                }else if(type==="admin"){
-                    goto('/admin')
+                if(type!=="user"){
+                    const res = await response.json();
+                    console.log(res)
+                    setUserId(res.user_id)
+                    setUserType(type)
+                    if(type==="employee"){
+                        goto('/employee/complaints') 
+                    }else if(type==="owner"){
+                        goto('/owner/inbox')
+                    }else if(type==="admin"){
+                        goto('/admin')
+                    }
+                }else if(type==="user"){
+                    const res = await response.json();
+                    console.log(res)
+                    setUserId(res.user_id)
+                    setUserType(type)
+                    setBlockNo(res.block_no)
+                    goto('/user/home')
                 }
             }
             if(!response.ok){
