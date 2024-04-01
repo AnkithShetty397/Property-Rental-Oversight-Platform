@@ -1,5 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
+    import { read } from '$app/server';
     import { setUserId, setUserType , setBlockNo} from "$lib/global"
     let email = '';
     let password = '';
@@ -37,7 +38,11 @@
                     console.log(res)
                     setUserId(res.user_id)
                     setUserType(type)
-                    setBlockNo(res.block_no)
+                    if(res.block_no == null){
+                        setBlockNo("0")
+                    }else{
+                        setBlockNo(res.block_no)
+                    }
                     goto('/user/home')
                 }
             }

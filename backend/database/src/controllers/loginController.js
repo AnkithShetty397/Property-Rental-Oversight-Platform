@@ -8,13 +8,14 @@ const connection = mysql.createConnection({
 });
 
 const login = (req, res, next) => {
+  console.log(req.body)
   const email = req.body.email;
   const type = req.body.type;
   const passwordFromBody = req.body.password;
 
   let query; 
   if(type === "user") {
-    query = "SELECT a.user_id, h.block_no, a.password FROM (tenant AS t JOIN account_details AS a ON t.user_id = a.user_id) JOIN house AS h ON t.house_no = h.house_no WHERE a.email = ? and a.type = ?";
+    query = "SELECT a.user_id, h.block_no, a.password FROM (tenant AS t JOIN account_details AS a ON t.user_id = a.user_id) LEFT JOIN house AS h ON t.house_no = h.house_no WHERE a.email = ? AND a.type = ?";
   } else {
     query = "SELECT password, user_id FROM account_details WHERE email = ? and type = ?";
   }

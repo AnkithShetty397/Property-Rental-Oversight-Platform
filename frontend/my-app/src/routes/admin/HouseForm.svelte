@@ -15,6 +15,8 @@
       });
 
       if (response.ok) {
+        houseDetails.email=''
+        houseDetails.house_no=''
         console.log('House submitted successfully');
       } else {
         console.error('Error submitting house');

@@ -2,7 +2,7 @@
 export let loc = ""
 export let house_no = "" 
 export let user_id = ""
-export let block_no = "5"
+export let block_no = "0"
 export let house_number = ""
 export let user_type = ""
 export let data=""

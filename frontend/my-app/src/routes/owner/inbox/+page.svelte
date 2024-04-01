@@ -9,7 +9,7 @@
         {#if data.notification && data.notification.length > 0}
         {#each data.notification as message}
             <div class="message-block">
-            <div class="user-name">Admin</div>
+            <div class="user-name">{message.sender}</div>
             <div class="message">
                 <p class="message-content">{message.content}</p>
             </div>
@@ -34,7 +34,7 @@
     }
 
     .scrollable-notification {
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto;
     width: 1450px;
     }

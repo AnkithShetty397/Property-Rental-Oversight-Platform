@@ -1,4 +1,5 @@
 const mysql = require("mysql2");
+const axios = require('axios');
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -14,7 +15,7 @@ const retrieveRentalRecords = (req, res, next) => {
 
   switch (type) {
     case "all":
-      query = "SELECT * FROM rental_records";
+      query = "SELECT * FROM rental_records ORDER BY start_date DESC";
       break;
     case "payment_status":
       query = "SELECT * FROM rental_records WHERE payment_status=?";
@@ -65,24 +66,27 @@ const calculateRentAmount = (startDate, endDate, rentPerMonth) => {
 
   const rentAmount = diffInMonths * rentPerMonth;
   return rentAmount || 0; 
-};
+}
+
 const addRentalRecord = (req, res, next) => {
-  let { start_date, end_date, tenant_id, house_no, rent_per_month, user_id } = req.body;
+  let { user_id, start_date, end_date, tenant_id, house_no, rent_per_month } = req.body;
   let payment_status = "no due";
 
   const fetchTenantIdQuery = "SELECT tenant_id FROM tenant WHERE user_id = ?";
+  const fetchOwnerQuery = "SELECT o.owner_id, i.phone_no, a.email FROM ((owner o JOIN identity i ON o.adhar_no=i.adhar_id) JOIN account_details a ON o.user_id=a.user_id) join house h on h.owner_id=o.owner_id WHERE h.house_no=?";
+  const fetchTenantUsernameQuery = "SELECT tenant_name FROM tenant WHERE user_id = ?";
 
-  connection.query(fetchTenantIdQuery, [user_id], (error, results, fields) => {
+  connection.query(fetchTenantIdQuery, [user_id], (error, tenantResults, fields) => {
     if (error) {
       console.error("Error fetching tenant_id:", error);
       return res.status(500).json({ error: "Internal Server Error" });
     }
 
-    if (results.length === 0) {
+    if (tenantResults.length === 0) {
       return res.status(404).json({ error: "Tenant not found for the provided user_id" });
     }
 
-    tenant_id = results[0].tenant_id;
+    tenant_id = tenantResults[0].tenant_id;
 
     rentalNumberGenerator((error, rentalNo) => {
       if (error) {
@@ -94,26 +98,68 @@ const addRentalRecord = (req, res, next) => {
 
       const insertQuery = "INSERT INTO rental_records (rental_no, start_date, end_date, tenant_id, house_no, rent_amount, payment_status) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-      connection.query(insertQuery, [rentalNo, start_date, end_date, tenant_id, house_no, rentAmount, payment_status], (error, results, fields) => {
+      connection.query(insertQuery, [rentalNo, start_date, end_date, tenant_id, house_no, rentAmount, payment_status], (error, rentalResults, fields) => {
         if (error) {
           console.error("Error inserting data:", error);
           return res.status(500).json({ error: "Internal Server Error" });
         }
 
-        const updateQuery = "UPDATE tenant SET house_no = ? WHERE user_id = ?";
-        connection.query(updateQuery, [house_no, user_id], (error, results, fields) => {
+        connection.query(fetchOwnerQuery, [house_no], (error, ownerResults, fields) => {
           if (error) {
-            console.error("Error updating tenant data:", error);
+            console.error("Error fetching owner's user_id:", error);
             return res.status(500).json({ error: "Internal Server Error" });
           }
-          
-          return res.status(200).json({ message: "Data inserted and tenant record updated successfully" });
+
+          if (ownerResults.length === 0) {
+            console.error("Owner not found for the provided house_no");
+            return res.status(404).json({ error: "Owner not found for the provided house_no" });
+          }
+
+          const owner_id = ownerResults[0].owner_id;
+          const phone_no = ownerResults[0].email;
+          const email = ownerResults[0].phone_no;
+
+          connection.query(fetchTenantUsernameQuery, [user_id], (error, tenantUsernameResults, fields) => {
+            if (error) {
+              console.error("Error fetching tenant's username:", error);
+              return res.status(500).json({ error: "Internal Server Error" });
+            }
+
+            const tenant_username = tenantUsernameResults[0].tenant_name;
+
+            const tenantNotificationMessage = `Dear ${tenant_username},\n\nYou have successfully rented the house (House No: ${house_no}) from ${start_date} to ${end_date} | \n\nRent Amount: ${rentAmount} | \n\nFor any queries, please contact the owner:\nEmail: ${email}\nPhone Number: ${phone_no}`;
+
+            axios.post('http://localhost:3000/api/sendNotification', {
+              to: user_id,
+              sender: "System",
+              content: tenantNotificationMessage
+            })
+            .then(() => {
+              const ownerNotificationMessage = `Dear Owner,\n\nTenant ${tenant_username} (tenant_id: ${tenant_id}) has rented your house (House No: ${house_no}) from ${start_date} to ${end_date}.\n\nRent Amount: ${rentAmount}`;
+
+              axios.post('http://localhost:3000/api/sendNotification', {
+                to: owner_id,
+                sender: "System",
+                content: ownerNotificationMessage
+              })
+              .then(() => {
+                return res.status(200).json({ message: "Data inserted successfully and notifications sent to the tenant and the owner" });
+              })
+              .catch(error => {
+                console.error("Error sending notification to the owner:", error);
+                return res.status(500).json({ error: "Internal Server Error" });
+              });
+            })
+            .catch(error => {
+              console.error("Error sending notification to the tenant:", error);
+              return res.status(500).json({ error: "Internal Server Error" });
+            });
+          });
         });
       });
     });
   });
 };
-
 
 module.exports = {
   retrieveRentalRecords,

@@ -29,7 +29,7 @@
             <div class="text-content">
               <h3>House number: {house.house_no}</h3>
               <p>Block number: {house.block_no}</p>
-              <p>Description goes here...</p>
+              <p>Spacious living area with modern amenities</p>
             </div>
             <button class="open-button" on:click={() => handleButtonClick(house.house_no)}>Open</button>
         </div>

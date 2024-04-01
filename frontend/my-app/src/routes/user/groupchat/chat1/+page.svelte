@@ -28,13 +28,14 @@
           }
           console.log('Message sent successfully')
           messageToSend=""
+          newMessage=""
           goto("/user/groupchat/chat2")
       })
       .catch(error => {
           console.error('Error sending message:', error)
       });
   } 
-  
+ 
 </script>
 
 <body>
@@ -68,13 +69,13 @@
  <style>
    .wrapper {
      width: 1100px; 
-     height: 530px;
+     height: 500px;
      margin: 0 auto;
      position: relative;
    }
    
    .scrollable-container {
-     height: 478px; 
+     height: 445px; 
      overflow-y: auto;
    }
 

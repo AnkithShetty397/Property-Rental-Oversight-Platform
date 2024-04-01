@@ -50,7 +50,6 @@ const getNotifications = (req,res,next)=>{
                 return res.status(404).json({ message: "No notifications found for the user" });
             }
 
-            // Mapping over notifications array to extract sender and content for each notification
             const messages = notification.notification.map(item => {
                 return { sender: item.sender, content: item.content };
             });

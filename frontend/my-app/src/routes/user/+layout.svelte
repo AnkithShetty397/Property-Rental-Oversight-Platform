@@ -25,7 +25,7 @@
                 <li><a href="/user/groupchat/chat1" class="button-link">Chatbox</a></li>
                 <li><a href="/user/complaints" class="button-link">Complaints</a></li>
                 <li><a href="/user" class="button-link">About Us</a></li>
-                <li><a href="https://app.droxy.ai/guest-chatbot/65efddb071834a577704fbf8" class="button-link" target="_blank">Help</a></li>
+                <li><a href="https://app.droxy.ai/guest-chatbot/660a16da32c3c5838f68eeb0" class="button-link" target="_blank">Help</a></li>
                 <li><button on:click={logout} class="button">logout</button></li>
                 
             </ul>
