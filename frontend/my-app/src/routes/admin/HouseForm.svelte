@@ -1,7 +1,7 @@
 <script>
   let houseDetails = {
     house_no: '',
-    email: '',
+    email: ''
   };
 
   async function submitHouse() {
@@ -9,20 +9,23 @@
       const response = await fetch('http://localhost:3000/api/admin/addhouseowner', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(houseDetails),
+        body: JSON.stringify(houseDetails)
       });
 
       if (response.ok) {
-        houseDetails.email=''
-        houseDetails.house_no=''
+        houseDetails.email = '';
+        houseDetails.house_no = '';
         console.log('House submitted successfully');
+        alert('House submitted successfully');
       } else {
         console.error('Error submitting house');
+        alert('Error submitting house');
       }
     } catch (error) {
       console.error('Error:', error);
+      alert('An unexpected error occurred');
     }
   }
 </script>
@@ -39,7 +42,6 @@
     <button type="submit">Submit House</button>
   </form>
 </div>
-
 
 <style>
   .form-container {

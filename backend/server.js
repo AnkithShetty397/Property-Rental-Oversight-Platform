@@ -18,7 +18,7 @@ const recordretrievalRoute = require("./database/src/routes/recordretrievalRoute
 const complaintRoute = require("./database/src/routes/complaintRoute");
 const notificationRoute = require("./database/src/routes/notificationRoute");
 const adminRoute = require("./database/src/routes/adminRoute");
-const ownerRoute = require('./database/src/routes/ownerRoute');
+const ownerRoute = require("./database/src/routes/ownerRoute");
 
 // connecting nodejs to mysql
 const mysqldb = mysql.createConnection({
@@ -34,8 +34,8 @@ mysqldb.connect(function (err) {
 });
 
 // connecting nodejs application to mongodb database using mongoose
-mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
-/* mongoose.connect(
+// mongoose.connect("mongodb://localhost:27017/nosqldb", {}); // default port //nosqldb is the name of mongodb
+mongoose.connect(
   "mongodb+srv://rohithreddyrr4:Crack%4064@cluster0.sz36yag.mongodb.net/",
   {}
 ); // default port //nosqldb is the name of mongodb */
@@ -77,4 +77,4 @@ app.use("/api/employee", recordretrievalRoute);
 app.use("/api/complaints", complaintRoute);
 app.use("/api", notificationRoute);
 app.use("/api/admin", adminRoute);
-app.use("/api/owner",ownerRoute);
+app.use("/api/owner", ownerRoute);
