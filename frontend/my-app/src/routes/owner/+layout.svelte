@@ -30,20 +30,22 @@
 <style>
     .main-container {
         margin-left: 9px;
-        width: 1500px;
-        justify-content: center;
+        max-width: calc(100vw - 18px); /* Set maximum width to 100% of viewport width minus the margins */
+        display: flex;
+        flex-direction: column; /* Added to ensure buttons and body-container stack vertically */
+        align-items: center; /* Center content horizontally */
     }
 
     .buttons {
         display: flex;
-        width: 1500;
+        width: 100%;
     }
 
     .top-buttons {
-        width: 705px;
+        /* flex: 1; Grow to fill available space */
         height: 50px;
         margin: 20px;
-        padding: 10px 20px;
+        padding: 10px 50px;
         font-size: 16px;
         background-color: #778fa8;
         color: #fff;
@@ -62,7 +64,8 @@
     }
 
     .body-container {
-        width: 1450;
+        width: 100%;
+        max-width: calc(100vw - 18px); /* Set maximum width to 100% of viewport width minus the margins */
         height: 483px;
     }
 </style>
