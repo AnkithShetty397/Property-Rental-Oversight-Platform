@@ -11,7 +11,7 @@
 
     function handleClick(event) {
     event.preventDefault();
-    window.location.href = "https://app.droxy.ai/guest-chatbot/65efddb071834a577704fbf8"; // Navigate to the desired URL
+    window.location.href = "https://app.droxy.ai/guest-chatbot/660e2e66197d666253ec3ca3"; // Navigate to the desired URL
   }
 </script>
 
@@ -25,7 +25,7 @@
                 <li><a href="/user/groupchat/chat1" class="button-link">Chatbox</a></li>
                 <li><a href="/user/complaints" class="button-link">Complaints</a></li>
                 <li><a href="/user" class="button-link">About Us</a></li>
-                <li><a href="https://app.droxy.ai/guest-chatbot/660a16da32c3c5838f68eeb0" class="button-link" target="_blank">Help</a></li>
+                <li><a href="https://app.droxy.ai/guest-chatbot/660e2e66197d666253ec3ca3" class="button-link" target="_blank">Help</a></li>
                 <li><button on:click={logout} class="button">logout</button></li>
                 
             </ul>
