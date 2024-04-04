@@ -10,19 +10,24 @@
     DoB: '',
     phone_no: '',
     email: '',
-    password: '',
+    password: ''
   };
 
   async function performEmployeeOperation() {
     try {
       let url = '';
       let method = '';
-      console.log(employeeDetails);
+
       if (employeeDetails.operation === 'add') {
         url = 'http://localhost:3000/api/admin/createemployee';
         method = 'POST';
       } else if (employeeDetails.operation === 'remove') {
         url = `http://localhost:3000/api/admin/removeemployee?user_id=${employeeDetails.employeeId}`;
+        method = 'DELETE'; // Adjusting method for remove operation
+      } else {
+        console.error('Invalid operation:', employeeDetails.operation);
+        alert('Invalid operation');
+        return;
       }
 
       const response = await fetch(url, {
@@ -35,72 +40,93 @@
 
       if (response.ok) {
         console.log(`Employee ${employeeDetails.operation} successful`);
+        alert(`Employee ${employeeDetails.operation} successful`);
+        clearForm();
       } else {
         console.error(`Error in employee ${employeeDetails.operation}`);
+        alert(`Error in employee ${employeeDetails.operation}`);
       }
     } catch (error) {
       console.error('Error:', error);
+      alert('An unexpected error occurred');
     }
+  }
+
+  function clearForm() {
+    employeeDetails = {
+      employeeId: '',
+      operation: 'add',
+      employee_name: '',
+      employee_age: '',
+      gender: '',
+      employee_salary: '',
+      hire_date: '',
+      DoB: '',
+      phone_no: '',
+      email: '',
+      password: ''
+    };
   }
 </script>
 
 <div style="height: 490px; overflow: auto; border-radius: 10px">
-<div class="form-container">
-  <h1>Add/Remove Employees</h1>
-  <form on:submit|preventDefault={performEmployeeOperation}>
-    {#if employeeDetails.operation === 'remove'}
-      <label for="employeeId">Employee ID:</label>
-      <input type="text" id="employeeId" bind:value={employeeDetails.employeeId} required />
-    {/if}
+  <div class="form-container">
+    <h1>Add/Remove Employees</h1>
+    <form on:submit|preventDefault={performEmployeeOperation}>
+      {#if employeeDetails.operation === 'remove'}
+        <label for="employeeId">Employee ID:</label>
+        <input type="text" id="employeeId" bind:value={employeeDetails.employeeId} required />
+      {/if}
 
-    <label for="operation">Select Operation:</label>
-    <select id="operation" bind:value={employeeDetails.operation} required>
-      <option value="add">Add Employee</option>
-      <option value="remove">Remove Employee</option>
-    </select>
-
-    {#if employeeDetails.operation === 'add'}
-      <label for="name">Name:</label>
-      <input type="text" id="name" bind:value={employeeDetails.employee_name} required />
-
-      <label for="age">Age:</label>
-      <input type="text" id="age" bind:value={employeeDetails.employee_age} required />
-
-      <label for="gender">Gender:</label>
-      <select id="gender" bind:value={employeeDetails.gender} required>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
+      <label for="operation">Select Operation:</label>
+      <select id="operation" bind:value={employeeDetails.operation} required>
+        <option value="add">Add Employee</option>
+        <option value="remove">Remove Employee</option>
       </select>
 
-      <label for="salary">Salary:</label>
-      <input type="number" id="salary" bind:value={employeeDetails.employee_salary} required />
+      {#if employeeDetails.operation === 'add'}
+        <label for="name">Name:</label>
+        <input type="text" id="name" bind:value={employeeDetails.employee_name} required />
 
-      <label for="hireDate">Hire Date:</label>
-      <input type="text" id="hireDate" bind:value={employeeDetails.hire_date} required />
+        <label for="age">Age:</label>
+        <input type="text" id="age" bind:value={employeeDetails.employee_age} required />
 
-      <label for="dob">Date of Birth:</label>
-      <input type="text" id="dob" bind:value={employeeDetails.DoB} required />
+        <label for="gender">Gender:</label>
+        <select id="gender" bind:value={employeeDetails.gender} required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
 
-      <label for="phoneNo">Phone Number:</label>
-      <input type="text" id="phoneNo" bind:value={employeeDetails.phone_no} required />
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" bind:value={employeeDetails.employee_salary} required />
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" bind:value={employeeDetails.email} required />
+        <label for="hireDate">Hire Date:</label>
+        <input type="text" id="hireDate" bind:value={employeeDetails.hire_date} required />
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" bind:value={employeeDetails.password} required />
+        <label for="dob">Date of Birth:</label>
+        <input type="text" id="dob" bind:value={employeeDetails.DoB} required />
 
-    {/if}
+        <label for="phoneNo">Phone Number:</label>
+        <input type="text" id="phoneNo" bind:value={employeeDetails.phone_no} required />
 
-    <button type="submit">Submit</button>
-  </form>
-</div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" bind:value={employeeDetails.email} required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" bind:value={employeeDetails.password} required />
+
+      {/if}
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </div>
 
 <style>
-  select{
+  select {
     height: 35px
   }
+
   .form-container {
     max-width: 800px;
     width: 100%;
