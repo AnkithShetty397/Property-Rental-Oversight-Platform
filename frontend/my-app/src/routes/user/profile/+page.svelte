@@ -1,17 +1,37 @@
 <script>
     import { goto } from '$app/navigation';
     import { user_id } from '$lib/global.js'
+    import { onMount } from 'svelte';
+
     /** @type {import('./$types').PageData} */
     export let data;
     function loadedit(){
         goto('/user/editprofile')
     }
+    
+    let profilePictureSrc = '';
+
+    async function fetchProfilePicture() {
+        try {
+            const response = await fetch(`http://localhost:3000/api/profile/getProfilePicture?user_id=${user_id}`);
+            if (response.ok) {
+                profilePictureSrc = URL.createObjectURL(await response.blob());
+            } else {
+                console.error('Failed to fetch profile picture');
+            }
+        } catch (error) {
+            console.error('Error fetching profile picture:', error);
+        }
+    }
+
+    onMount(fetchProfilePicture);
+
 </script>
 
 <main>
     <body>
         <div class="profile-container">
-            <img src={`http://localhost:3000/api/profile/getProfilePicture?user_id=${user_id}`} alt="" class="profile-image">
+            <img src={profilePictureSrc} alt="" class="profile-image">
             <div class="user-info">
                     <h2>{ data.info.name}</h2>
                     <p>Email: { data.info.email }</p>
