@@ -58,40 +58,42 @@ const deleteProfilePicture = (req,res,next)=>{
 }
 
 const getProfilePicture = (req, res, next) => {
-    const userid = req.query.user_id // Extract user_id from query parameters
+    const userId = req.query.user_id;
 
-    if (!userid) {
-        return res.status(400).json({ success: false, message: 'User ID is required' })
+    if (!userId) {
+        return res.status(400).json({ success: false, message: 'User ID is required' });
     }
 
-    Profile.findOne({ user_id: userid })
+    Profile.findOne({ user_id: userId })
+        .sort({ updatedAt: -1 }) 
         .then(profile => {
-            let imagePath
+            let imagePath;
             if (!profile) {
                 imagePath = 'database\\src\\uploads\\profilepictures\\default.jpg';
-            }
-            imagePath = profile.pathtoimage
+            } else {
+                imagePath = profile.pathtoimage;
 
-            if (!imagePath) {
-                return res.status(404).json({ success: false, message: 'Image path not found' })
+                if (!imagePath) {
+                    return res.status(404).json({ success: false, message: 'Image path not found' });
+                }
             }
 
             fs.readFile(imagePath, (err, data) => {
                 if (err) {
                     console.error(err);
-                    return res.status(500).json({ success: false, message: 'Error reading image' })
+                    return res.status(500).json({ success: false, message: 'Error reading image' });
                 }
 
-                const contentType = path.extname(imagePath) === '.png' ? 'image/png' : 'image/jpeg'
+                const contentType = path.extname(imagePath) === '.png' ? 'image/png' : 'image/jpeg';
 
                 res.setHeader('Content-Type', contentType);
                 res.send(data);
-            })
+            });
         })
         .catch(error => {
             console.error(error);
-            res.status(500).json({ success: false, message: 'Error finding profile' })
-        })
+            res.status(500).json({ success: false, message: 'Error finding profile' });
+        });
 };
 
 
